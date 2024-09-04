@@ -68,7 +68,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					Fill out the form with your headline, date, author, and content. Complete all fields to generate and preview your custom newspaper clipping.
 				</p>
 
-				<div className="grid gap-4 mb-4 lg:grid-cols-2 lg:gap-6">
+				<div className="grid gap-4 mb-4 md:grid-cols-2 md:gap-6">
 					<div>
 						<label id="news-heading-label" className="block mb-1 font-semibold" htmlFor="news-heading">
 							News Heading:
@@ -130,7 +130,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					<button
 						onClick={handleGeneratePreview}
 						type="button"
-						className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-white font-semibold h-12 px-6 rounded-lg w-full inline-flex items-center justify-center sm:w-auto whitespace-nowrap"
+						className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-white font-semibold h-12 px-6 rounded-lg  inline-flex items-center justify-center whitespace-nowrap"
 					>
 						<AiOutlineFire className="mr-1" />
 						Generate
@@ -138,7 +138,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					<button
 						onClick={handleReset}
 						type="button"
-						className="bg-transparent border border-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-gray-800 font-semibold h-12 px-6 rounded-lg w-full inline-flex items-center justify-center sm:w-auto whitespace-nowrap"
+						className="bg-transparent border border-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-gray-800 font-semibold h-12 px-6 rounded-lg inline-flex items-center justify-center whitespace-nowrap"
 					>
 						<AiOutlineClear className="mr-1" />
 						Clear
