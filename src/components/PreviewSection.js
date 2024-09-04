@@ -16,13 +16,13 @@ import { SITE_URL } from "../constants/seo";
  */
 const PreviewSection = ({ previewUrl, onDownload, onReset, onEdit }) => {
 	const promotionalTag = "#JhunnuSamachar";
-	const message = `Check out this cool app! I made this awesome newspaper clipping using Jhunnu Samachar. You can create your own at ${SITE_URL} ${promotionalTag}`;
+	const message = `Check out this cool app! I made this awesome newspaper clipping using Jhunnu Samachar. You can create your own at ${SITE_URL}`;
 
 	const handleShare = (platform) => {
 		let url = "";
 		switch (platform) {
 			case "twitter":
-				url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}`;
+				url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message + `\n\n ${promotionalTag}`)}`;
 				break;
 			case "whatsapp":
 				url = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
