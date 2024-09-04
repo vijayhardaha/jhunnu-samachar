@@ -52,6 +52,10 @@ const Home = () => {
 		setNews(DEFAULT_NEWS_DATA);
 	};
 
+	const handleEdit = () => {
+		setPreviewUrl("");
+	};
+
 	return (
 		<div className="min-h-screen">
 			<Header />
@@ -59,7 +63,7 @@ const Home = () => {
 			<main className="container mx-auto">
 				<div className="block relative mt-4 mb-12">
 					{previewUrl ? (
-						<PreviewSection previewUrl={previewUrl} onDownload={handleDownload} onReset={handleReset} />
+						<PreviewSection previewUrl={previewUrl} onDownload={handleDownload} onReset={handleReset} onEdit={handleEdit} />
 					) : (
 						<NewsForm news={news} setNews={setNews} onGeneratePreview={handleGeneratePreview} onReset={handleReset} />
 					)}
