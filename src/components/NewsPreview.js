@@ -1,3 +1,4 @@
+import { formatDate } from "date-fns";
 import PropTypes from "prop-types";
 
 import { getFontClass } from "../utils/fonts";
@@ -10,7 +11,7 @@ import { getFontClass } from "../utils/fonts";
  * @returns {JSX.Element} The news preview component.
  */
 const NewsPreview = ({ news }) => {
-	const { date, author, heading, content } = news;
+	const { author, heading, content } = news;
 
 	const paperHeading = "Jhunnu Samachar";
 
@@ -35,7 +36,7 @@ const NewsPreview = ({ news }) => {
 						<h1 className={`${paperHeadingFontClass} text-6xl sm:text-7xl text-primary mb-8 font-bold text-center`}>{paperHeading}</h1>
 						<hr className="my-2 h-[2px] bg-black border-0" />
 						<div className={`${authorFontClass} flex flex-col sm:flex-row justify-between my-3 px-1 space-y-2 sm:space-y-0`}>
-							<span className="text-sm whitespace-nowrap">{date}</span>
+							<span className="text-sm whitespace-nowrap">{formatDate(new Date(), "EEEE - dd, MMMM yyyy")}</span>
 							<span className="text-sm whitespace-nowrap">Publisher: {author}</span>
 						</div>
 						<hr className="my-2 h-[2px] bg-black border-0 mb-6" />
@@ -50,7 +51,6 @@ const NewsPreview = ({ news }) => {
 
 NewsPreview.propTypes = {
 	news: PropTypes.shape({
-		date: PropTypes.string,
 		author: PropTypes.string,
 		heading: PropTypes.string,
 		content: PropTypes.string,

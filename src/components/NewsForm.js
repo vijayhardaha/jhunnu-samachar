@@ -1,13 +1,10 @@
 import { useState } from "react";
 
 import domtoimage from "dom-to-image";
-import "flatpickr/dist/flatpickr.css";
 import PropTypes from "prop-types";
-import Flatpickr from "react-flatpickr";
 import { AiOutlineFire, AiOutlineClear } from "react-icons/ai";
 
 import NewsPreview from "./NewsPreview";
-import { formatDate } from "../utils/dateUtils";
 
 /**
  * Form for inputting news details.
@@ -31,16 +28,6 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 			...prevNews,
 			[name]: value,
 		}));
-	};
-
-	const handleDateChange = (date) => {
-		if (date.length > 0) {
-			const selected = date[0];
-			setNews((prevNews) => ({
-				...prevNews,
-				date: formatDate(selected, "l - d F, Y"),
-			}));
-		}
 	};
 
 	const handleReset = () => {
@@ -93,21 +80,6 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-sm"
 						value={news.heading}
 						onChange={handleChange}
-						aria-required="true"
-						required
-					/>
-				</div>
-
-				<div className="mb-4">
-					<label id="news-date-label" className="block mb-1 font-semibold" htmlFor="news-date">
-						Date:
-					</label>
-					<Flatpickr
-						value={news.date ? formatDate(new Date(news.date), "l - d F, Y") : formatDate(new Date(), "l - d F, Y")}
-						onChange={handleDateChange}
-						options={{ dateFormat: "l - d F, Y" }}
-						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-sm"
-						aria-labelledby="news-date-label"
 						aria-required="true"
 						required
 					/>
