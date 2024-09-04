@@ -55,21 +55,21 @@ const PreviewSection = ({ previewUrl, onDownload, onReset, onEdit }) => {
 					className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm"
 				>
 					<AiOutlineDownload className="mr-1" />
-					Download
+					Download the News Clip
 				</button>
 				<button
 					onClick={() => handleShare("twitter")}
 					className="bg-blue-500 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm"
 				>
 					<AiOutlineTwitter className="mr-1" />
-					Tweet
+					Share on Twitter
 				</button>
 				<button
 					onClick={() => handleShare("whatsapp")}
 					className="bg-green-500 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm"
 				>
 					<AiOutlineWhatsApp className="mr-1" />
-					Share
+					Share via WhatsApp
 				</button>
 			</div>
 
@@ -87,14 +87,14 @@ const PreviewSection = ({ previewUrl, onDownload, onReset, onEdit }) => {
 					className="bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm"
 				>
 					<AiOutlineEdit className="mr-1" />
-					Edit
+					Edit the News Content
 				</button>
 				<button
 					onClick={onReset}
 					className="bg-purple-500 hover:bg-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm"
 				>
 					<AiOutlineReload className="mr-1" />
-					Generate New
+					Generate New Newspaper Clipping
 				</button>
 			</div>
 		</div>
