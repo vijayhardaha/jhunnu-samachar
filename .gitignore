@@ -135,3 +135,5 @@ Thumbs.db
 
 # Nextjs
 .next
+public/robots.txt
+public/sitemap*.xml
