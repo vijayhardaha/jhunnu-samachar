@@ -1,0 +1,40 @@
+{
+	"name": "jhunnu-samachar",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"postbuild": "next-sitemap"
+	},
+	"dependencies": {
+		"autoprefixer": "^10.4.20",
+		"date-fns": "^3.6.0",
+		"dom-to-image": "^2.6.0",
+		"flatpickr": "^4.6.13",
+		"next": "^14.2.7",
+		"next-sitemap": "^4.2.3",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-flatpickr": "^3.10.13",
+		"react-icons": "^5.3.0",
+		"sass": "^1.78.0",
+		"tailwindcss": "^3.4.10"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^7.17.0",
+		"@typescript-eslint/parser": "^7.17.0",
+		"eslint": "^8.57.0",
+		"eslint-config-next": "^14.2.7",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-import": "^2.30.0",
+		"eslint-plugin-jsx-a11y": "^6.10.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"eslint-plugin-react": "^7.35.2",
+		"eslint-plugin-react-hooks": "^4.6.2",
+		"postcss": "^8.4.45",
+		"prettier": "^3.3.3"
+	}
+}
