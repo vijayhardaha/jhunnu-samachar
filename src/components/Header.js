@@ -12,10 +12,13 @@ const Header = () => {
 	const shareMessage = `Check out this amazing newspaper clipping generator on Jhunnu Samachar! Create your own custom clippings easily. ${SITE_URL}`;
 
 	return (
-		<header className="py-4">
+		<header className="pt-3 pb-2">
 			<div className="container mx-auto flex items-center justify-between">
-				<div className="flex items-center space-x-1">
-					<Logo size={50} />
+				<div className="flex items-center space-x-3">
+					<div style={{ margin: "-6px" }}>
+						<Logo size={50} />
+					</div>
+
 					<span className="font-semibold">
 						By{" "}
 						<a href="https://twitter.com/vijayhardaha" target="_blank" rel="noopener noreferrer" className="text-sm text-secondary">
