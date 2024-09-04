@@ -12,7 +12,7 @@ import { getFontClass } from "../utils/fonts";
 const NewsPreview = ({ news }) => {
 	const { date, author, heading, content } = news;
 
-	const paperHeading = "Jhunnu Samachaar";
+	const paperHeading = "Jhunnu Samachar";
 
 	const paperHeadingFontClass = getFontClass(paperHeading, true);
 	const authorFontClass = getFontClass("Author");
@@ -23,8 +23,8 @@ const NewsPreview = ({ news }) => {
 		<>
 			<div className="my-8">
 				<p className="text-lg text-gray-700">
-					&quot;Breaking news! Cats have taken over the internet... again. But don’t worry, your newspaper clipping is here to save the day.
-					Let’s make the headlines funnier than the actual news!&quot;
+					&quot;Breaking news! Cats have taken over the internet... again. But don’t worry, your newspaper clipping is here to save the day. Let’s
+					make the headlines funnier than the actual news!&quot;
 				</p>
 			</div>
 
