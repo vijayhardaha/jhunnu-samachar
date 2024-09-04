@@ -14,12 +14,12 @@ const Footer = () => (
 			style={{ width: "100%", height: "5rem", display: "block" }}
 		>
 			<path
-				fill="#fafafa"
+				fill="#f1f5f9"
 				d="M0,224L40,218.7C80,213,160,203,240,213.3C320,224,400,256,480,240C560,224,640,160,720,144C800,128,880,160,960,149.3C1040,139,1120,85,1200,96C1280,107,1360,181,1400,218.7L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
 			></path>
 		</svg>
 
-		<div className="bg-zinc-50">
+		<div className="bg-slate-100">
 			<div className="pt-16 pb-12">
 				<div className="container mx-auto">
 					<h2 className="text-3xl mb-4 font-bold">Welcome to Jhunnu Samachar</h2>
@@ -43,8 +43,8 @@ const Footer = () => (
 							adjustments if needed.
 						</li>
 						<li className="mb-2">
-							<strong>Download or Share:</strong> Once you’re satisfied with your design, download the clipping as an image file or share it
-							directly on social media platforms.
+							<strong>Download or Share:</strong> Once you’re satisfied with your design, download the clipping as an image file or share it directly
+							on social media platforms.
 						</li>
 					</ol>
 
