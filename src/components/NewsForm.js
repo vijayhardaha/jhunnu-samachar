@@ -53,13 +53,9 @@ const NewsForm = ({ news, setNews, onGeneratePreview }) => {
 
 	return (
 		<>
-			<form className="mb-10" aria-labelledby="news-form-title">
-				<h1 id="news-form-title" className="text-2xl font-bold mb-4">
-					Share Your News
-				</h1>
+			<form className="mb-10">
 				<p id="news-form-description" className="text-sm mb-6 leading-relaxed">
-					Fill out the form to provide your news details. Enter a clear heading, choose a date, add the author’s name, and include the content.
-					Complete all fields to see a preview of your news article.
+					Fill out the form with your headline, date, author, and content. Complete all fields to generate and preview your custom newspaper clipping.
 				</p>
 
 				<div className="mb-4">

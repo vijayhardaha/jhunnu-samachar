@@ -25,9 +25,8 @@ const Footer = () => (
 					<h2 className="text-3xl mb-4 font-bold">Welcome to Jhunnu Samachar</h2>
 
 					<p className="text-base mb-8">
-						Jhunnu Samachar is a creative tool designed to help you generate and customize professional-looking newspaper clippings in seconds.
-						Whether you’re crafting a mockup for a story or just having fun with design, Jhunnu Samachar makes it easy to create eye-catching
-						newspaper clippings.
+						Jhunnu Samachar is your go-to web app for creating and sharing funny fake news stories. With an easy-to-use interface, you can generate
+						and customize amusing headlines and content to entertain your friends and family. Start crafting your next hilarious news article now!
 					</p>
 
 					<h3 className="text-2xl mb-2 font-semibold">Getting Started</h3>
@@ -39,7 +38,7 @@ const Footer = () => (
 							<strong>Enter Your Information:</strong> Input your news heading, date, author, and content into the designated fields.
 						</li>
 						<li className="mb-2">
-							<strong>Generate Preview:</strong> Click on the &quot;Generate Preview&quot; button to see how your clipping looks. Make any final
+							<strong>Generate Preview:</strong> Click on the &quot;Generate&quot; button to see how your clipping looks. Make any final
 							adjustments if needed.
 						</li>
 						<li className="mb-2">

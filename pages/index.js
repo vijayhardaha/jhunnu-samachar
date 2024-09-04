@@ -61,6 +61,13 @@ const Home = () => {
 			<Header />
 
 			<main className="container mx-auto">
+				<h1 className="text-3xl font-bold my-4">Jhunnu Samachar</h1>
+				<p className="text-sm mb-4">
+					Craft and share funny fake news with Jhunnu Samachar. Easily create hilarious headlines and content to entertain everyone!
+				</p>
+
+				<div className="bg-gray-300 h-[2px] w-[100px] my-4"></div>
+
 				<div className="block relative mt-4 mb-12">
 					{previewUrl ? (
 						<PreviewSection previewUrl={previewUrl} onDownload={handleDownload} onReset={handleReset} onEdit={handleEdit} />
