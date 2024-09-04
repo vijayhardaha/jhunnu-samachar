@@ -40,13 +40,6 @@ const Home = () => {
 		setPreviewUrl(dataUrl);
 	};
 
-	const handleDownload = () => {
-		const link = document.createElement("a");
-		link.download = "jhunnu-samachar.jpeg";
-		link.href = previewUrl;
-		link.click();
-	};
-
 	const handleReset = () => {
 		setPreviewUrl("");
 		setNews(DEFAULT_NEWS_DATA);
@@ -70,7 +63,7 @@ const Home = () => {
 
 				<div className="block relative mt-4 mb-12">
 					{previewUrl ? (
-						<PreviewSection previewUrl={previewUrl} onDownload={handleDownload} onReset={handleReset} onEdit={handleEdit} />
+						<PreviewSection previewUrl={previewUrl} onReset={handleReset} onEdit={handleEdit} />
 					) : (
 						<NewsForm news={news} setNews={setNews} onGeneratePreview={handleGeneratePreview} onReset={handleReset} />
 					)}

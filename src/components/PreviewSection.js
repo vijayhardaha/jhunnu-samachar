@@ -10,14 +10,20 @@ import { SITE_URL } from "../constants/seo";
  *
  * @param {Object} props - Component properties.
  * @param {string} props.previewUrl - URL of the generated preview image.
- * @param {Function} props.onDownload - Function to handle image download.
  * @param {Function} props.onReset - Function to reset the preview and form.
  * @param {Function} props.onEdit - Function to handle editing.
  * @returns {JSX.Element} The preview section component.
  */
-const PreviewSection = ({ previewUrl, onDownload, onReset, onEdit }) => {
+const PreviewSection = ({ previewUrl, onReset, onEdit }) => {
 	const promotionalTag = "#JhunnuSamachar";
 	const message = `Check out this cool app! I made this awesome newspaper clipping using Jhunnu Samachar. You can create your own at ${SITE_URL}`;
+
+	const handleDownload = () => {
+		const link = document.createElement("a");
+		link.download = "jhunnu-samachar.jpeg";
+		link.href = previewUrl;
+		link.click();
+	};
 
 	const handleShare = (platform) => {
 		let url = "";
@@ -44,7 +50,7 @@ const PreviewSection = ({ previewUrl, onDownload, onReset, onEdit }) => {
 
 			<div className="button-group relative flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mb-6">
 				<button
-					onClick={onDownload}
+					onClick={handleDownload}
 					className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm relative"
 					aria-label="Download the News Clip"
 				>
@@ -130,7 +136,6 @@ const PreviewSection = ({ previewUrl, onDownload, onReset, onEdit }) => {
 
 PreviewSection.propTypes = {
 	previewUrl: PropTypes.string.isRequired,
-	onDownload: PropTypes.func.isRequired,
 	onReset: PropTypes.func.isRequired,
 	onEdit: PropTypes.func.isRequired,
 };
