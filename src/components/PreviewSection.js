@@ -1,10 +1,91 @@
 /* eslint-disable react/no-unknown-property */
+import { useRef, useState } from "react";
+
 import Image from "next/image";
 import PropTypes from "prop-types";
-import { AiOutlineDownload, AiOutlineTwitter, AiOutlineWhatsApp, AiOutlineReload, AiOutlineEdit } from "react-icons/ai";
+import {
+	AiOutlineDownload,
+	AiOutlineTwitter,
+	AiOutlineWhatsApp,
+	AiOutlineReload,
+	AiOutlineEdit,
+	AiOutlineCopy,
+	AiOutlineCheck,
+} from "react-icons/ai";
 
 import { DEFAULT_NEWS_DATA } from "../constants/newsConstants";
 import { SITE_URL } from "../constants/seo";
+
+/**
+ * Reusable Button component for various actions.
+ *
+ * @param {Object} props - Component properties.
+ * @param {string} props.color - Background color of the button.
+ * @param {string} props.text - Tooltip text for the button.
+ * @param {JSX.Element} props.icon - Icon to display within the button.
+ * @param {Function} props.onClick - Click handler function for the button.
+ * @param {string} [props.ariaLabel] - Aria label for accessibility.
+ * @param {Object} [props.rest] - Additional properties passed to the button.
+ * @returns {JSX.Element} The reusable button component.
+ */
+const Button = ({ color, text, icon, onClick, ariaLabel, ...props }) => {
+	return (
+		<>
+			<button
+				onClick={onClick}
+				className={`${color} hover:${color.replace("bg-", "hover:bg-")} focus:outline-none focus:ring-2 focus:ring-offset-2 text-white font-medium h-12 px-4 rounded-lg inline-flex items-center justify-center text-sm relative`}
+				aria-label={ariaLabel || text}
+				{...props}
+			>
+				{icon}
+				<span className="sr-only">{text}</span>
+				<span className="tooltip">{text}</span>
+				<style jsx>{`
+					.tooltip {
+						visibility: hidden;
+						opacity: 0;
+						transition: opacity 0.3s ease;
+						position: absolute;
+						bottom: 110%;
+						left: 50%;
+						transform: translateX(-50%);
+						background-color: black;
+						color: white;
+						padding: 5px 10px;
+						border-radius: 6px;
+						font-size: 12px;
+						white-space: nowrap;
+						z-index: 10;
+					}
+
+					.tooltip::before {
+						content: "";
+						position: absolute;
+						top: 100%;
+						left: 50%;
+						margin-left: -5px;
+						border-width: 5px;
+						border-style: solid;
+						border-color: black transparent transparent transparent;
+					}
+
+					button:hover .tooltip {
+						visibility: visible;
+						opacity: 1;
+					}
+				`}</style>
+			</button>
+		</>
+	);
+};
+
+Button.propTypes = {
+	color: PropTypes.string.isRequired, // Expecting a Tailwind CSS color class, e.g., "bg-blue-500".
+	text: PropTypes.string.isRequired, // Tooltip text for the button.
+	icon: PropTypes.element.isRequired, // Icon component to be rendered inside the button.
+	onClick: PropTypes.func.isRequired, // Function to be executed on click.
+	ariaLabel: PropTypes.string, // Aria-label for screen readers.
+};
 
 /**
  * Preview section for displaying and downloading the generated news clipping image.
@@ -16,6 +97,8 @@ import { SITE_URL } from "../constants/seo";
  * @returns {JSX.Element} The preview section component.
  */
 const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
+	const inputRef = useRef(null);
+	const [isCopied, setIsCopied] = useState(false);
 	const promotionalTag = "#JhunnuSamachar";
 	const message = `Check out this cool app! I made this awesome newspaper clipping using Jhunnu Samachar. You can create your own at ${SITE_URL}`;
 
@@ -50,95 +133,69 @@ const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
 		setPreview("");
 	};
 
+	const handleCopyToClipboard = () => {
+		if (inputRef.current) {
+			inputRef.current.select();
+			navigator.clipboard.writeText(message).then(() => {
+				setIsCopied(true);
+				inputRef.current.focus();
+				setTimeout(() => setIsCopied(false), 500);
+			});
+		}
+	};
+
 	return (
-		<div>
-			<p className="mb-4 font-medium text-gray-700">
+		<div className="bg-white">
+			<p className="mb-4 font-medium text-gray-700 mb-4">
 				<strong>Here is your newspaper clipping preview.</strong> You can download it to save or share it with others using the buttons below. If
-				you’d like to make changes, click <strong className="text-yellow-500 underline">Edit</strong> to adjust the content, or select{" "}
-				<strong className="text-teal-500 underline">Generate New</strong> to create a fresh newspaper clipping.
+				you’d like to make changes, click <strong className="text-yellow-500">[Edit]</strong> to adjust the content, or select{" "}
+				<strong className="text-teal-500">[Generate New]</strong> to create a fresh newspaper clipping.
 			</p>
 
-			<div className="button-group relative flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mb-6">
+			<div className="flex flex-col sm:flex-row gap-2 mb-4">
+				<input
+					ref={inputRef}
+					type="text"
+					readOnly
+					value={message}
+					className="flex-1 p-3 border border-gray-400 rounded-lg bg-gray-100 text-gray-700"
+				/>
 				<button
-					onClick={handleDownload}
-					className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm relative"
-					aria-label="Download the News Clip"
+					onClick={handleCopyToClipboard}
+					className={`flex items-center justify-center bg-gray-800 hover:bg-gray-600 text-white font-medium rounded-lg px-4 py-2 ${
+						isCopied ? "bg-green-500 hover:bg-green-400" : ""
+					}`}
 				>
-					<AiOutlineDownload className="w-5 h-5" />
-					<span className="tooltip">Download the News Clip</span>
-				</button>
-				<button
-					onClick={() => handleShare("twitter")}
-					className="bg-blue-500 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm relative"
-					aria-label="Share on Twitter"
-				>
-					<AiOutlineTwitter className="w-5 h-5" />
-					<span className="tooltip">Share on Twitter</span>
-				</button>
-				<button
-					onClick={() => handleShare("whatsapp")}
-					className="bg-green-500 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm relative"
-					aria-label="Share via WhatsApp"
-				>
-					<AiOutlineWhatsApp className="w-5 h-5" />
-					<span className="tooltip">Share via WhatsApp</span>
-				</button>
-
-				<button
-					onClick={handleEdit}
-					className="bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm relative"
-					aria-label="Edit the News Content"
-				>
-					<AiOutlineEdit className="w-5 h-5" />
-					<span className="tooltip">Edit the News Content</span>
-				</button>
-				<button
-					onClick={handleReset}
-					className="bg-teal-500 hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm relative"
-					aria-label="Generate New Newspaper Clipping"
-				>
-					<AiOutlineReload className="w-5 h-5" />
-					<span className="tooltip">Generate New Newspaper Clipping</span>
+					{isCopied ? (
+						<>
+							<AiOutlineCheck className="text-1xl xs:text-2xl mr-1 xs:mr-0" />
+							<span className="xs:hidden">Copied</span>
+						</>
+					) : (
+						<>
+							<AiOutlineCopy className="text-1xl xs:text-2xl mr-1 xs:mr-0" />
+							<span className="xs:hidden">Copy</span>
+						</>
+					)}
 				</button>
 			</div>
 
-			<style jsx>{`
-				.tooltip {
-					visibility: hidden;
-					opacity: 0;
-					transition: opacity 0.3s ease;
-					position: absolute;
-					bottom: 110%;
-					left: 50%;
-					transform: translateX(-50%);
-					background-color: black;
-					color: white;
-					padding: 5px 10px;
-					border-radius: 6px;
-					font-size: 12px;
-					white-space: nowrap;
-					z-index: 10;
-				}
+			<div className="button-group relative flex flex-row space-x-2 mb-4">
+				<Button color="bg-slate-900" text="Download the News Clip" icon={<AiOutlineDownload className="text-2xl" />} onClick={handleDownload} />
+				<Button color="bg-blue-500" text="Share on Twitter" icon={<AiOutlineTwitter className="text-2xl" />} onClick={() => handleShare("twitter")} />
+				<Button
+					color="bg-green-500"
+					text="Share via WhatsApp"
+					icon={<AiOutlineWhatsApp className="text-2xl" />}
+					onClick={() => handleShare("whatsapp")}
+				/>
+				<Button color="bg-yellow-500" text="Edit the News Content" icon={<AiOutlineEdit className="text-2xl" />} onClick={handleEdit} />
+				<Button color="bg-teal-500" text="Generate New Newspaper Clipping" icon={<AiOutlineReload className="text-2xl" />} onClick={handleReset} />
+			</div>
 
-				.tooltip::before {
-					content: "";
-					position: absolute;
-					top: 100%;
-					left: 50%;
-					margin-left: -5px;
-					border-width: 5px;
-					border-style: solid;
-					border-color: black transparent transparent transparent;
-				}
-
-				.button-group button:hover .tooltip {
-					visibility: visible;
-					opacity: 1;
-				}
-			`}</style>
-
-			<div className="mx-auto mb-6 max-w-full">
-				<Image src={previewUrl} alt="News Preview" layout="responsive" width={1200} height={675} className="h-auto" />
+			{/* Preview Image */}
+			<div className="mx-auto mt-6 max-w-full ">
+				<Image src={previewUrl} alt="News Preview" layout="responsive" width={1200} height={675} className="h-auto rounded-lg" />
 			</div>
 		</div>
 	);

@@ -155,7 +155,6 @@ NewsForm.propTypes = {
 	news: PropTypes.shape({
 		heading: PropTypes.string.isRequired,
 		content: PropTypes.string.isRequired,
-		date: PropTypes.string.isRequired,
 		author: PropTypes.string.isRequired,
 	}).isRequired,
 	setNews: PropTypes.func.isRequired,
