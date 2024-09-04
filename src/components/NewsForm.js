@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import domtoimage from "dom-to-image";
 import "flatpickr/dist/flatpickr.css";
 import PropTypes from "prop-types";
 import Flatpickr from "react-flatpickr";
@@ -14,10 +15,10 @@ import { formatDate } from "../utils/dateUtils";
  * @param {Object} props - Component properties.
  * @param {Object} props.news - The news details object.
  * @param {Function} props.setNews - Function to update the news details.
- * @param {Function} props.onGeneratePreview - Function to generate the preview.
+ * @param {Function} props.setPreview - Function to update the preview url.
  * @returns {JSX.Element} The form component.
  */
-const NewsForm = ({ news, setNews, onGeneratePreview }) => {
+const NewsForm = ({ news, setNews, setPreview }) => {
 	const [contentLength, setContentLength] = useState(news.content.length);
 	const maxContentLength = 1000;
 
@@ -49,6 +50,28 @@ const NewsForm = ({ news, setNews, onGeneratePreview }) => {
 			content: "",
 		}));
 		setContentLength(0);
+	};
+
+	const handleGeneratePreview = async () => {
+		const node = document.getElementById("news-preview");
+
+		// Get the node's dimensions.
+		const rect = node.getBoundingClientRect();
+		const width = rect.width * 3;
+		const height = rect.height * 3;
+
+		const options = {
+			width, // Set dynamic width.
+			height, // Set dynamic height.
+			quality: 1, // Increase the image quality (0 to 1).
+			style: {
+				transform: "scale(3)", // Scale the node for higher resolution.
+				transformOrigin: "top left", // Ensure scaling doesn't affect position.
+			},
+		};
+
+		const dataUrl = await domtoimage.toJpeg(node, options);
+		setPreview(dataUrl);
 	};
 
 	return (
@@ -131,7 +154,7 @@ const NewsForm = ({ news, setNews, onGeneratePreview }) => {
 
 				<div className="flex space-x-4">
 					<button
-						onClick={onGeneratePreview}
+						onClick={handleGeneratePreview}
 						type="button"
 						className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-white font-semibold h-12 px-6 rounded-lg w-full inline-flex items-center justify-center sm:w-auto whitespace-nowrap"
 					>
@@ -162,7 +185,7 @@ NewsForm.propTypes = {
 		author: PropTypes.string.isRequired,
 	}).isRequired,
 	setNews: PropTypes.func.isRequired,
-	onGeneratePreview: PropTypes.func.isRequired,
+	setPreview: PropTypes.func.isRequired,
 };
 
 export default NewsForm;

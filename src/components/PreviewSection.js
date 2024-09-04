@@ -3,6 +3,7 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import { AiOutlineDownload, AiOutlineTwitter, AiOutlineWhatsApp, AiOutlineReload, AiOutlineEdit } from "react-icons/ai";
 
+import { DEFAULT_NEWS_DATA } from "../constants/newsConstants";
 import { SITE_URL } from "../constants/seo";
 
 /**
@@ -10,11 +11,11 @@ import { SITE_URL } from "../constants/seo";
  *
  * @param {Object} props - Component properties.
  * @param {string} props.previewUrl - URL of the generated preview image.
- * @param {Function} props.onReset - Function to reset the preview and form.
- * @param {Function} props.onEdit - Function to handle editing.
+ * @param {Function} props.setNews - Function to update the news details.
+ * @param {Function} props.setPreview - Function to update the preview url.
  * @returns {JSX.Element} The preview section component.
  */
-const PreviewSection = ({ previewUrl, onReset, onEdit }) => {
+const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
 	const promotionalTag = "#JhunnuSamachar";
 	const message = `Check out this cool app! I made this awesome newspaper clipping using Jhunnu Samachar. You can create your own at ${SITE_URL}`;
 
@@ -38,6 +39,15 @@ const PreviewSection = ({ previewUrl, onReset, onEdit }) => {
 				break;
 		}
 		window.open(url, "_blank");
+	};
+
+	const handleReset = () => {
+		setPreview("");
+		setNews(DEFAULT_NEWS_DATA);
+	};
+
+	const handleEdit = () => {
+		setPreview("");
 	};
 
 	return (
@@ -75,7 +85,7 @@ const PreviewSection = ({ previewUrl, onReset, onEdit }) => {
 				</button>
 
 				<button
-					onClick={onEdit}
+					onClick={handleEdit}
 					className="bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm relative"
 					aria-label="Edit the News Content"
 				>
@@ -83,7 +93,7 @@ const PreviewSection = ({ previewUrl, onReset, onEdit }) => {
 					<span className="tooltip">Edit the News Content</span>
 				</button>
 				<button
-					onClick={onReset}
+					onClick={handleReset}
 					className="bg-teal-500 hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm relative"
 					aria-label="Generate New Newspaper Clipping"
 				>
@@ -136,8 +146,8 @@ const PreviewSection = ({ previewUrl, onReset, onEdit }) => {
 
 PreviewSection.propTypes = {
 	previewUrl: PropTypes.string.isRequired,
-	onReset: PropTypes.func.isRequired,
-	onEdit: PropTypes.func.isRequired,
+	setNews: PropTypes.func.isRequired,
+	setPreview: PropTypes.func.isRequired,
 };
 
 export default PreviewSection;

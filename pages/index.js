@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import domtoimage from "dom-to-image";
 import PropTypes from "prop-types";
 
 import Footer from "../src/components/Footer";
@@ -18,37 +17,6 @@ const Home = () => {
 	const [news, setNews] = useState(DEFAULT_NEWS_DATA);
 	const [previewUrl, setPreviewUrl] = useState("");
 
-	const handleGeneratePreview = async () => {
-		const node = document.getElementById("news-preview");
-
-		// Get the node's dimensions.
-		const rect = node.getBoundingClientRect();
-		const width = rect.width * 3;
-		const height = rect.height * 3;
-
-		const options = {
-			width, // Set dynamic width.
-			height, // Set dynamic height.
-			quality: 1, // Increase the image quality (0 to 1).
-			style: {
-				transform: "scale(3)", // Scale the node for higher resolution.
-				transformOrigin: "top left", // Ensure scaling doesn't affect position.
-			},
-		};
-
-		const dataUrl = await domtoimage.toJpeg(node, options);
-		setPreviewUrl(dataUrl);
-	};
-
-	const handleReset = () => {
-		setPreviewUrl("");
-		setNews(DEFAULT_NEWS_DATA);
-	};
-
-	const handleEdit = () => {
-		setPreviewUrl("");
-	};
-
 	return (
 		<div className="min-h-screen">
 			<Header />
@@ -63,9 +31,9 @@ const Home = () => {
 
 				<div className="block relative mt-4 mb-12">
 					{previewUrl ? (
-						<PreviewSection previewUrl={previewUrl} onReset={handleReset} onEdit={handleEdit} />
+						<PreviewSection previewUrl={previewUrl} setNews={setNews} setPreview={setPreviewUrl} />
 					) : (
-						<NewsForm news={news} setNews={setNews} onGeneratePreview={handleGeneratePreview} onReset={handleReset} />
+						<NewsForm news={news} setNews={setNews} setPreview={setPreviewUrl} />
 					)}
 				</div>
 			</main>
