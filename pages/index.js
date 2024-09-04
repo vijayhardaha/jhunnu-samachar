@@ -21,8 +21,11 @@ const Home = () => {
 		<div className="min-h-screen">
 			<Header />
 
-			<main className="container mx-auto">
-				<h1 className="text-3xl font-bold my-4">Jhunnu Samachar</h1>
+			<main className="container my-8 mx-auto">
+				<h1 className="text-4xl font-bold my-4 text-primary">
+					Jhunnu Samachar
+				</h1>
+
 				<p className="text-sm mb-4">
 					Craft and share funny fake news with Jhunnu Samachar. Easily create hilarious headlines and content to entertain everyone!
 				</p>
