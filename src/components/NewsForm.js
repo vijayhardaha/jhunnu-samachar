@@ -5,8 +5,7 @@ import PropTypes from "prop-types";
 import Flatpickr from "react-flatpickr";
 
 import NewsPreview from "./NewsPreview";
-import { DEFAULT_NEWS_DATA } from "../constants/newsConstants";
-import { formatDate } from "../utils/dateUtils"; // Adjust the path as needed
+import { formatDate } from "../utils/dateUtils";
 
 /**
  * Form for inputting news details.
@@ -19,7 +18,7 @@ import { formatDate } from "../utils/dateUtils"; // Adjust the path as needed
  */
 const NewsForm = ({ news, setNews, onGeneratePreview }) => {
 	const [contentLength, setContentLength] = useState(news.content.length);
-	const maxContentLength = 1000; // Set your maximum character limit here
+	const maxContentLength = 1000;
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
