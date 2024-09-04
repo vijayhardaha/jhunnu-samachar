@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import Image from "next/image";
 import PropTypes from "prop-types";
 import { AiOutlineDownload, AiOutlineTwitter, AiOutlineWhatsApp, AiOutlineReload, AiOutlineEdit } from "react-icons/ai";
@@ -34,68 +35,94 @@ const PreviewSection = ({ previewUrl, onDownload, onReset, onEdit }) => {
 	};
 
 	return (
-		<div className="text-center">
-			<p className="mb-4 text-lg font-medium text-gray-700">
-				Here is your generated newspaper clipping preview. You can download it, or share it with others using the buttons below.
+		<div>
+			<p className="mb-4 font-medium text-gray-700">
+				<strong>Here is your newspaper clipping preview.</strong> You can download it to save or share it with others using the buttons below. If
+				you’d like to make changes, click <strong className="text-yellow-500 underline">Edit</strong> to adjust the content, or select{" "}
+				<strong className="text-teal-500 underline">Generate New</strong> to create a fresh newspaper clipping.
 			</p>
-			<div className="mx-auto mb-6 max-w-full">
-				<Image src={previewUrl} alt="News Preview" layout="responsive" width={1200} height={675} className="h-auto" />
-			</div>
 
-			<div className="text-center mb-6">
-				<p className="text-gray-700 mb-4">
-					You can manage your news clipping using the buttons below. Download the image or share it on social media to spread the word about your
-					awesome creation!
-				</p>
-			</div>
-
-			<div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-2 mb-6">
+			<div className="button-group relative flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mb-6">
 				<button
 					onClick={onDownload}
-					className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm"
+					className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm relative"
+					aria-label="Download the News Clip"
 				>
-					<AiOutlineDownload className="mr-1" />
-					Download the News Clip
+					<AiOutlineDownload className="w-5 h-5" />
+					<span className="tooltip">Download the News Clip</span>
 				</button>
 				<button
 					onClick={() => handleShare("twitter")}
-					className="bg-blue-500 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm"
+					className="bg-blue-500 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm relative"
+					aria-label="Share on Twitter"
 				>
-					<AiOutlineTwitter className="mr-1" />
-					Share on Twitter
+					<AiOutlineTwitter className="w-5 h-5" />
+					<span className="tooltip">Share on Twitter</span>
 				</button>
 				<button
 					onClick={() => handleShare("whatsapp")}
-					className="bg-green-500 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm"
+					className="bg-green-500 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm relative"
+					aria-label="Share via WhatsApp"
 				>
-					<AiOutlineWhatsApp className="mr-1" />
-					Share via WhatsApp
+					<AiOutlineWhatsApp className="w-5 h-5" />
+					<span className="tooltip">Share via WhatsApp</span>
 				</button>
-			</div>
 
-			<div className="border-t border-gray-300 my-6"></div>
-
-			<div className="text-center mb-6">
-				<p className="text-gray-700 mb-4">
-					You can make changes to your clipping or start fresh to create a new one. Just hit the Edit button or Generate New to get started!
-				</p>
-			</div>
-
-			<div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-2 mb-6">
 				<button
 					onClick={onEdit}
-					className="bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm"
+					className="bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm relative"
+					aria-label="Edit the News Content"
 				>
-					<AiOutlineEdit className="mr-1" />
-					Edit the News Content
+					<AiOutlineEdit className="w-5 h-5" />
+					<span className="tooltip">Edit the News Content</span>
 				</button>
 				<button
 					onClick={onReset}
-					className="bg-purple-500 hover:bg-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm"
+					className="bg-teal-500 hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 text-white font-medium h-10 px-4 rounded-md w-full inline-flex items-center justify-center sm:w-auto text-sm relative"
+					aria-label="Generate New Newspaper Clipping"
 				>
-					<AiOutlineReload className="mr-1" />
-					Generate New Newspaper Clipping
+					<AiOutlineReload className="w-5 h-5" />
+					<span className="tooltip">Generate New Newspaper Clipping</span>
 				</button>
+			</div>
+
+			<style jsx>{`
+				.tooltip {
+					visibility: hidden;
+					opacity: 0;
+					transition: opacity 0.3s ease;
+					position: absolute;
+					bottom: 110%;
+					left: 50%;
+					transform: translateX(-50%);
+					background-color: black;
+					color: white;
+					padding: 5px 10px;
+					border-radius: 6px;
+					font-size: 12px;
+					white-space: nowrap;
+					z-index: 10;
+				}
+
+				.tooltip::before {
+					content: "";
+					position: absolute;
+					top: 100%;
+					left: 50%;
+					margin-left: -5px;
+					border-width: 5px;
+					border-style: solid;
+					border-color: black transparent transparent transparent;
+				}
+
+				.button-group button:hover .tooltip {
+					visibility: visible;
+					opacity: 1;
+				}
+			`}</style>
+
+			<div className="mx-auto mb-6 max-w-full">
+				<Image src={previewUrl} alt="News Preview" layout="responsive" width={1200} height={675} className="h-auto" />
 			</div>
 		</div>
 	);
