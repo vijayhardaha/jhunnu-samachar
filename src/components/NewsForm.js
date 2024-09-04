@@ -43,8 +43,12 @@ const NewsForm = ({ news, setNews, onGeneratePreview }) => {
 	};
 
 	const handleReset = () => {
-		setNews(DEFAULT_NEWS_DATA);
-		setContentLength(DEFAULT_NEWS_DATA.content.length);
+		setNews((prevNews) => ({
+			...prevNews,
+			heading: "",
+			content: "",
+		}));
+		setContentLength(0);
 	};
 
 	return (
@@ -140,9 +144,9 @@ const NewsForm = ({ news, setNews, onGeneratePreview }) => {
 					<button
 						onClick={handleReset}
 						type="button"
-						className="bg-gray-300 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-gray-800 font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto whitespace-nowrap"
+						className="bg-transparent border border-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-gray-800 font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto whitespace-nowrap"
 					>
-						Reset
+						Clear
 					</button>
 				</div>
 			</form>
