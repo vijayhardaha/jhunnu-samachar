@@ -67,7 +67,7 @@ const NewsForm = ({ news, setNews, onGeneratePreview }) => {
 						id="news-heading"
 						name="heading"
 						aria-labelledby="news-heading-label"
-						className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-sm"
+						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-sm"
 						value={news.heading}
 						onChange={handleChange}
 						aria-required="true"
@@ -83,7 +83,7 @@ const NewsForm = ({ news, setNews, onGeneratePreview }) => {
 						value={news.date ? formatDate(new Date(news.date), "l - d F, Y") : formatDate(new Date(), "l - d F, Y")}
 						onChange={handleDateChange}
 						options={{ dateFormat: "l - d F, Y" }}
-						className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-sm"
+						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-sm"
 						aria-labelledby="news-date-label"
 						aria-required="true"
 						required
@@ -99,7 +99,7 @@ const NewsForm = ({ news, setNews, onGeneratePreview }) => {
 						id="news-author"
 						name="author"
 						aria-labelledby="news-author-label"
-						className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-sm"
+						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-sm"
 						value={news.author}
 						onChange={handleChange}
 						aria-required="true"
@@ -116,7 +116,7 @@ const NewsForm = ({ news, setNews, onGeneratePreview }) => {
 						name="content"
 						aria-labelledby="news-content-label"
 						aria-describedby="content-length-description"
-						className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-sm"
+						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-sm"
 						rows="10"
 						value={news.content}
 						onChange={handleChange}
