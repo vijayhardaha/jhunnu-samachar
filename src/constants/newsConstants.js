@@ -12,5 +12,5 @@ export const DEFAULT_NEWS_DATA = {
 		"The guru, known for his calm demeanor, embraced the moment, declaring that Whiskers had achieved ‘enlightenment’ faster than anyone in the room. The class ended with laughter and a new spiritual lesson: sometimes, enlightenment comes on four paws and a tail!\n\n" +
 		"Attendees left the session with smiles and a new story to tell, while Whiskers basked in the newfound fame, seemingly unfazed by the commotion.",
 	date: formatDate(new Date(), "dddd, MMMM Do YYYY"), // Current date with a professional format
-	author: "Vijay Hardaha",
+	author: "Jhunnu Lal Gadhawa",
 };
