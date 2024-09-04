@@ -68,38 +68,40 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					Fill out the form with your headline, date, author, and content. Complete all fields to generate and preview your custom newspaper clipping.
 				</p>
 
-				<div className="mb-4">
-					<label id="news-heading-label" className="block mb-1 font-semibold" htmlFor="news-heading">
-						News Heading:
-					</label>
-					<input
-						type="text"
-						id="news-heading"
-						name="heading"
-						aria-labelledby="news-heading-label"
-						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-sm"
-						value={news.heading}
-						onChange={handleChange}
-						aria-required="true"
-						required
-					/>
-				</div>
+				<div className="grid gap-4 mb-4 lg:grid-cols-2 lg:gap-6">
+					<div>
+						<label id="news-heading-label" className="block mb-1 font-semibold" htmlFor="news-heading">
+							News Heading:
+						</label>
+						<input
+							type="text"
+							id="news-heading"
+							name="heading"
+							aria-labelledby="news-heading-label"
+							className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-sm"
+							value={news.heading}
+							onChange={handleChange}
+							aria-required="true"
+							required
+						/>
+					</div>
 
-				<div className="mb-4">
-					<label id="news-author-label" className="block mb-1 font-semibold" htmlFor="news-author">
-						Author:
-					</label>
-					<input
-						type="text"
-						id="news-author"
-						name="author"
-						aria-labelledby="news-author-label"
-						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-sm"
-						value={news.author}
-						onChange={handleChange}
-						aria-required="true"
-						required
-					/>
+					<div>
+						<label id="news-author-label" className="block mb-1 font-semibold" htmlFor="news-author">
+							Author:
+						</label>
+						<input
+							type="text"
+							id="news-author"
+							name="author"
+							aria-labelledby="news-author-label"
+							className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-sm"
+							value={news.author}
+							onChange={handleChange}
+							aria-required="true"
+							required
+						/>
+					</div>
 				</div>
 
 				<div className="mb-4">
