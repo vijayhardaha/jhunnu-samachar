@@ -51,12 +51,11 @@ const NewsForm = ({ news, setNews, onGeneratePreview }) => {
 		<>
 			<form className="mb-10" aria-labelledby="news-form-title">
 				<h1 id="news-form-title" className="text-2xl font-bold mb-4">
-					Enter News Details
+					Share Your News
 				</h1>
 				<p id="news-form-description" className="text-sm mb-6 leading-relaxed">
-					Please fill out the form below to input the details of the news you want to feature. Provide a clear heading, select the date, enter the
-					author’s name, and add the content of the news. Ensure that all fields are filled out correctly to generate a preview of the news
-					article. This information will help in creating a well-structured and accurate preview for your review.
+					Fill out the form to provide your news details. Enter a clear heading, choose a date, add the author’s name, and include the content.
+					Complete all fields to see a preview of your news article.
 				</p>
 
 				<div className="mb-4">
