@@ -3,6 +3,7 @@ import { useState } from "react";
 import "flatpickr/dist/flatpickr.css";
 import PropTypes from "prop-types";
 import Flatpickr from "react-flatpickr";
+import { AiOutlineFire, AiOutlineClear } from "react-icons/ai";
 
 import NewsPreview from "./NewsPreview";
 import { formatDate } from "../utils/dateUtils";
@@ -136,15 +137,17 @@ const NewsForm = ({ news, setNews, onGeneratePreview }) => {
 					<button
 						onClick={onGeneratePreview}
 						type="button"
-						className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto whitespace-nowrap"
+						className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-white font-semibold h-12 px-6 rounded-lg w-full inline-flex items-center justify-center sm:w-auto whitespace-nowrap"
 					>
-						Generate News Clip
+						<AiOutlineFire className="mr-1" />
+						Generate
 					</button>
 					<button
 						onClick={handleReset}
 						type="button"
-						className="bg-transparent border border-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-gray-800 font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto whitespace-nowrap"
+						className="bg-transparent border border-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-gray-800 font-semibold h-12 px-6 rounded-lg w-full inline-flex items-center justify-center sm:w-auto whitespace-nowrap"
 					>
+						<AiOutlineClear className="mr-1" />
 						Clear
 					</button>
 				</div>
