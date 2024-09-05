@@ -23,8 +23,8 @@ const NewsPreview = ({ news }) => {
 				<div
 					className="absolute inset-0 bg-cover bg-center"
 					style={{
-						backgroundImage: `url('/images/newspaper-bg.jpg')`,
-						opacity: 0.35,
+						backgroundImage: `url('/images/newspaper-bg.webp')`,
+						opacity: 0.45,
 					}}
 				/>
 
