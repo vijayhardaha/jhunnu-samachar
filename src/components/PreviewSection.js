@@ -15,6 +15,7 @@ import {
 
 import { DEFAULT_NEWS_DATA } from "../constants/newsConstants";
 import { SITE_URL } from "../constants/seo";
+import { extractExtensionFromBase64, generateUniqueId } from "../utils/downloadUtils";
 
 /**
  * Reusable Button component for various actions.
@@ -80,11 +81,11 @@ const Button = ({ color, text, icon, onClick, ariaLabel, ...props }) => {
 };
 
 Button.propTypes = {
-	color: PropTypes.string.isRequired, // Expecting a Tailwind CSS color class, e.g., "bg-blue-500".
-	text: PropTypes.string.isRequired, // Tooltip text for the button.
-	icon: PropTypes.element.isRequired, // Icon component to be rendered inside the button.
-	onClick: PropTypes.func.isRequired, // Function to be executed on click.
-	ariaLabel: PropTypes.string, // Aria-label for screen readers.
+	color: PropTypes.string.isRequired,
+	text: PropTypes.string.isRequired,
+	icon: PropTypes.element.isRequired,
+	onClick: PropTypes.func.isRequired,
+	ariaLabel: PropTypes.string,
 };
 
 /**
@@ -102,13 +103,29 @@ const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
 	const promotionalTag = "#JhunnuSamachar";
 	const message = `Check out this cool app! I made this awesome newspaper clipping using Jhunnu Samachar. You can create your own at ${SITE_URL}`;
 
+	/**
+	 * Handles the download of the preview image with a unique filename.
+	 *
+	 * Creates a link element, detects the file extension from the base64 URL,
+	 * generates a unique alphanumeric ID, and sets up the link to trigger the download.
+	 */
 	const handleDownload = () => {
 		const link = document.createElement("a");
-		link.download = "jhunnu-samachar.jpeg";
+		const extension = extractExtensionFromBase64(previewUrl);
+		const uniqueId = generateUniqueId();
+		const filename = `jhunnu-samachar-${uniqueId}.${extension}`;
+		link.download = filename;
 		link.href = previewUrl;
 		link.click();
 	};
 
+	/**
+	 * Handles sharing the content on a specified platform.
+	 *
+	 * Opens a new window with the sharing URL based on the selected platform.
+	 *
+	 * @param {string} platform - The platform to share on ('twitter' or 'whatsapp').
+	 */
 	const handleShare = (platform) => {
 		let url = "";
 		switch (platform) {
@@ -124,15 +141,24 @@ const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
 		window.open(url, "_blank");
 	};
 
+	/**
+	 * Resets the preview and news data to default values.
+	 */
 	const handleReset = () => {
 		setPreview("");
 		setNews(DEFAULT_NEWS_DATA);
 	};
 
+	/**
+	 * Resets the preview without changing the news data.
+	 */
 	const handleEdit = () => {
 		setPreview("");
 	};
 
+	/**
+	 * Copies the content of the input field to the clipboard and shows a copy confirmation.
+	 */
 	const handleCopyToClipboard = () => {
 		if (inputRef.current) {
 			inputRef.current.select();
