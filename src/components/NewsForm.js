@@ -180,14 +180,14 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 						<div className="inline-flex">
 							<button
 								type="button"
-								className={`border border-r-0 rounded-l p-1 px-3 text-xs font-medium ${news.type === "jpeg" ? "bg-primary text-white border-primary" : ""}`}
+								className={`border border-r-0 rounded-l p-1 px-3 text-xs font-medium ${news.type === "jpeg" ? "bg-slate-900 text-white border-slate-900" : ""}`}
 								onClick={() => handleImageFormatChange("jpeg")}
 							>
 								Jpeg
 							</button>
 							<button
 								type="button"
-								className={`border border-l-0 rounded-r p-1 px-3 text-xs font-medium ${news.type === "png" ? "bg-primary text-white border-primary" : ""}`}
+								className={`border border-l-0 rounded-r p-1 px-3 text-xs font-medium ${news.type === "png" ? "bg-slate-900 text-white border-slate-900" : ""}`}
 								onClick={() => handleImageFormatChange("png")}
 							>
 								Png
@@ -201,14 +201,14 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 						<div className="inline-flex">
 							<button
 								type="button"
-								className={`border border-r-0 rounded-l p-1 px-3 text-xs font-medium ${news.scale === 2 ? "bg-primary text-white border-primary" : ""}`}
+								className={`border border-r-0 rounded-l p-1 px-3 text-xs font-medium ${news.scale === 2 ? "bg-slate-900 text-white border-slate-900" : ""}`}
 								onClick={() => handleScaleChange(2)}
 							>
 								2x
 							</button>
 							<button
 								type="button"
-								className={`border border-l-0 rounded-r p-1 px-3 text-xs font-medium ${news.scale === 4 ? "bg-primary text-white border-primary" : ""}`}
+								className={`border border-l-0 rounded-r p-1 px-3 text-xs font-medium ${news.scale === 4 ? "bg-slate-900 text-white border-slate-900" : ""}`}
 								onClick={() => handleScaleChange(4)}
 							>
 								4x
@@ -218,7 +218,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 
 					<div>
 						<label className="block mb-1 font-semibold text-sm">
-							Quality: <span className="text-xs text-primary">{news.quality}</span>
+							Quality: <span className="text-xs bg-yellow-100 px-2 py-0.5 rounded-sm">{news.quality}</span>
 						</label>
 						<div className="relative">
 							<input
@@ -228,7 +228,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 								step="0.05"
 								value={news.quality}
 								onChange={handleQualityChange}
-								className="w-full h-1 bg-slate-300 appearance-none rounded-lg cursor-pointer focus:outline-none"
+								className="w-full h-1 bg-slate-400 appearance-none rounded-lg cursor-pointer focus:outline-none"
 								style={{
 									WebkitAppearance: "none",
 									appearance: "none",
@@ -241,14 +241,14 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 									width: 14px;
 									height: 14px;
 									border-radius: 50%;
-									background: #603f26;
+									background: #0f172a;
 									cursor: pointer;
 								}
 								input[type="range"]::-moz-range-thumb {
 									width: 14px;
 									height: 14px;
 									border-radius: 50%;
-									background: #603f26;
+									background: #0f172a;
 									cursor: pointer;
 								}
 							`}</style>
