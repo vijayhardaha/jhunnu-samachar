@@ -152,7 +152,7 @@ const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
 				<strong className="text-teal-500">[Generate New]</strong> to create a fresh newspaper clipping.
 			</p>
 
-			<div className="flex flex-col sm:flex-row gap-2 mb-4">
+			<div className="flex flex-row gap-2 mb-4">
 				<input
 					ref={inputRef}
 					type="text"
@@ -168,13 +168,13 @@ const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
 				>
 					{isCopied ? (
 						<>
-							<AiOutlineCheck className="text-1xl xs:text-2xl mr-1 xs:mr-0" />
-							<span className="xs:hidden">Copied</span>
+							<AiOutlineCheck className="text-2xl sm:text-xl mr-0 sm:mr-1" />
+							<span className="hidden sm:inline">Copied</span>
 						</>
 					) : (
 						<>
-							<AiOutlineCopy className="text-1xl xs:text-2xl mr-1 xs:mr-0" />
-							<span className="xs:hidden">Copy</span>
+							<AiOutlineCopy className="text-2xl sm:text-xl mr-0 sm:mr-1" />
+							<span className="hidden sm:inline">Copy</span>
 						</>
 					)}
 				</button>
