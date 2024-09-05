@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react";
+/* eslint-disable react/no-unknown-property */
+import { useState } from "react";
+
 import domtoimage from "dom-to-image";
 import PropTypes from "prop-types";
 import { AiOutlineFire, AiOutlineClear } from "react-icons/ai";
+
 import NewsPreview from "./NewsPreview";
 
 /**
@@ -162,7 +165,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 						aria-labelledby="news-content-label"
 						aria-describedby="content-length-description"
 						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-sm"
-						rows="10"
+						rows="8"
 						value={news.content}
 						onChange={handleChange}
 						maxLength={maxContentLength}
@@ -176,9 +179,12 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 
 				<div className="mb-8 flex flex-row gap-8">
 					<div>
-						<label className="block mb-1 font-semibold text-sm">Type:</label>
+						<label className="block mb-1 font-semibold text-sm" htmlFor="image-format">
+							Type:
+						</label>
 						<div className="inline-flex">
 							<button
+								id="jpeg-button"
 								type="button"
 								className={`border border-r-0 rounded-l p-1 px-3 text-xs font-medium ${news.type === "jpeg" ? "bg-slate-900 text-white border-slate-900" : ""}`}
 								onClick={() => handleImageFormatChange("jpeg")}
@@ -186,6 +192,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 								Jpeg
 							</button>
 							<button
+								id="png-button"
 								type="button"
 								className={`border border-l-0 rounded-r p-1 px-3 text-xs font-medium ${news.type === "png" ? "bg-slate-900 text-white border-slate-900" : ""}`}
 								onClick={() => handleImageFormatChange("png")}
@@ -195,11 +202,13 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 						</div>
 					</div>
 
-					{/* Size */}
 					<div>
-						<label className="block mb-1 font-semibold text-sm">Size:</label>
+						<label className="block mb-1 font-semibold text-sm" htmlFor="scale-options">
+							Size:
+						</label>
 						<div className="inline-flex">
 							<button
+								id="scale-2x"
 								type="button"
 								className={`border border-r-0 rounded-l p-1 px-3 text-xs font-medium ${news.scale === 2 ? "bg-slate-900 text-white border-slate-900" : ""}`}
 								onClick={() => handleScaleChange(2)}
@@ -207,6 +216,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 								2x
 							</button>
 							<button
+								id="scale-4x"
 								type="button"
 								className={`border border-l-0 rounded-r p-1 px-3 text-xs font-medium ${news.scale === 4 ? "bg-slate-900 text-white border-slate-900" : ""}`}
 								onClick={() => handleScaleChange(4)}
@@ -217,11 +227,12 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					</div>
 
 					<div>
-						<label className="block mb-1 font-semibold text-sm">
+						<label className="block mb-1 font-semibold text-sm" htmlFor="quality-slider">
 							Quality: <span className="text-xs bg-yellow-100 px-2 py-0.5 rounded-sm">{news.quality}</span>
 						</label>
 						<div className="relative">
 							<input
+								id="quality-slider"
 								type="range"
 								min="0.35"
 								max="1"
