@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 
 import Logo from "./Logo";
@@ -14,18 +15,13 @@ const Header = () => {
 	return (
 		<header className="pt-3 pb-2">
 			<div className="container mx-auto flex items-center justify-between">
-				<div className="flex items-center space-x-3">
+				<Link href="/" className="flex items-center space-x-3">
 					<div style={{ margin: "-6px" }}>
 						<Logo size={50} />
 					</div>
 
-					<span className="font-semibold">
-						By{" "}
-						<a href="https://twitter.com/vijayhardaha" target="_blank" rel="noopener noreferrer" className="text-sm text-secondary">
-							Vijay Hardaha
-						</a>
-					</span>
-				</div>
+					<h1 className="font-semibold text-primary inline">Jhunnu Samachar</h1>
+				</Link>
 				<div className="flex items-center">
 					<a
 						href={`https://wa.me/?text=${encodeURIComponent(shareMessage)}`}
