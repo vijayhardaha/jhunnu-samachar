@@ -26,7 +26,7 @@ export const SITE_TITLE_SHORT = "Jhunnu Samachar";
  *
  * Provides a brief overview of the site's purpose and functionality.
  * @type {string}
- * @default "Create and customize your own newspaper clippings with Jhunnu Samachar. Input your news heading, date, author, and content to generate a professional-looking newspaper clipping image."
+ * @default "Create and customize your own newspaper clippings with Jhunnu Samachar. Input your news heading, publisher, and content to generate a professional-looking newspaper clipping image."
  */
 export const SITE_DESC =
 	"Jhunnu Samachar is your go-to web app for creating and sharing funny fake news stories. With an easy-to-use interface, you can generate and customize amusing headlines and content to entertain your friends and family. Start crafting your next hilarious news article now!";

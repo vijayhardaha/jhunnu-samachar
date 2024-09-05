@@ -47,7 +47,7 @@ Home.propTypes = {
 		heading: PropTypes.string,
 		content: PropTypes.string,
 		date: PropTypes.string,
-		author: PropTypes.string,
+		publisher: PropTypes.string,
 	}),
 	previewUrl: PropTypes.string,
 };

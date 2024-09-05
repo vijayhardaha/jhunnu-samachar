@@ -11,12 +11,12 @@ import { getFontClass } from "../utils/fonts";
  * @returns {JSX.Element} The news preview component.
  */
 const NewsPreview = ({ news }) => {
-	const { author, heading, content } = news;
+	const { publisher, heading, content } = news;
 
 	const paperHeading = "Jhunnu Samachar";
 
 	const paperHeadingFontClass = getFontClass(paperHeading, true);
-	const englishFontClass = getFontClass("Author");
+	const englishFontClass = getFontClass("publisher");
 	const headingFontClass = getFontClass(heading, true);
 	const contentFontClass = getFontClass(content);
 
@@ -37,7 +37,7 @@ const NewsPreview = ({ news }) => {
 						<hr className="my-2 h-[2px] bg-black border-0" />
 						<div className={`${englishFontClass} flex flex-col sm:flex-row justify-between my-3 px-1 space-y-2 sm:space-y-0`}>
 							<span className="text-sm whitespace-nowrap">{formatDate(new Date(), "EEEE - dd, MMMM yyyy")}</span>
-							<span className="text-sm whitespace-nowrap">Publisher: {author}</span>
+							<span className="text-sm whitespace-nowrap">Publisher: {publisher}</span>
 						</div>
 						<hr className="my-2 h-[2px] bg-black border-0 mb-6" />
 						<h2 className={`${headingFontClass} text-4xl sm:text-5xl sm:leading-tight leading-tight text-secondary font-semibold mb-6`}>{heading}</h2>
@@ -61,7 +61,7 @@ const NewsPreview = ({ news }) => {
 
 NewsPreview.propTypes = {
 	news: PropTypes.shape({
-		author: PropTypes.string,
+		publisher: PropTypes.string,
 		heading: PropTypes.string,
 		content: PropTypes.string,
 	}).isRequired,

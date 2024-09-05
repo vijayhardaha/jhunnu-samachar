@@ -65,7 +65,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 		<>
 			<form className="mb-10">
 				<p id="news-form-description" className="text-sm mb-6 leading-relaxed font-medium">
-					Fill out the form with your headline, date, author, and content. Complete all fields to generate and preview your custom newspaper clipping.
+					Fill out the form with your headline, publisher, and content. Complete all fields to generate and preview your custom newspaper clipping.
 				</p>
 
 				<div className="grid gap-4 mb-4 md:grid-cols-2 md:gap-6">
@@ -87,16 +87,16 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					</div>
 
 					<div>
-						<label id="news-author-label" className="block mb-1 font-semibold" htmlFor="news-author">
-							Author:
+						<label id="news-publisher-label" className="block mb-1 font-semibold" htmlFor="news-publisher">
+							News Publisher:
 						</label>
 						<input
 							type="text"
-							id="news-author"
-							name="author"
-							aria-labelledby="news-author-label"
+							id="news-publisher"
+							name="publisher"
+							aria-labelledby="news-publisher-label"
 							className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-sm"
-							value={news.author}
+							value={news.publisher}
 							onChange={handleChange}
 							aria-required="true"
 							required
@@ -155,7 +155,7 @@ NewsForm.propTypes = {
 	news: PropTypes.shape({
 		heading: PropTypes.string.isRequired,
 		content: PropTypes.string.isRequired,
-		author: PropTypes.string.isRequired,
+		publisher: PropTypes.string.isRequired,
 	}).isRequired,
 	setNews: PropTypes.func.isRequired,
 	setPreview: PropTypes.func.isRequired,

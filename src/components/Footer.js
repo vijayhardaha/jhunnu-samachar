@@ -35,7 +35,7 @@ const Footer = () => (
 
 					<ol className="list-decimal list-inside mb-8">
 						<li className="mb-2">
-							<strong>Enter Your Information:</strong> Input your news heading, date, author, and content into the designated fields.
+							<strong>Enter Your Information:</strong> Input your news headline, publisher, and content into the designated fields.
 						</li>
 						<li className="mb-2">
 							<strong>Generate Preview:</strong> Click on the &quot;Generate&quot; button to see how your clipping looks. Make any final
