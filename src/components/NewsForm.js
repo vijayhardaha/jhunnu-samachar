@@ -91,20 +91,20 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 		const node = document.getElementById("news-preview");
 
 		const rect = node.getBoundingClientRect();
-		const width = rect.width * scale;
-		const height = rect.height * scale;
+		const width = rect.width * news.scale;
+		const height = rect.height * news.scale;
 
 		const options = {
 			width,
 			height,
-			quality: parseFloat(quality),
+			quality: parseFloat(news.quality),
 			style: {
-				transform: `scale(${Math.round(scale)})`,
+				transform: `scale(${Math.round(news.scale)})`,
 				transformOrigin: "top left",
 			},
 		};
 
-		const dataUrl = imageFormat === "png" ? await domtoimage.toPng(node, options) : await domtoimage.toJpeg(node, options);
+		const dataUrl = news.type === "png" ? await domtoimage.toPng(node, options) : await domtoimage.toJpeg(node, options);
 
 		setPreview(dataUrl);
 	};
@@ -118,7 +118,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 
 				<div className="grid gap-4 mb-4 md:grid-cols-2 md:gap-6">
 					<div>
-						<label id="news-heading-label" className="block mb-1 font-semibold" htmlFor="news-heading">
+						<label id="news-heading-label" className="block mb-1 font-semibold text-sm" htmlFor="news-heading">
 							News Heading:
 						</label>
 						<input
@@ -135,7 +135,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					</div>
 
 					<div>
-						<label id="news-publisher-label" className="block mb-1 font-semibold" htmlFor="news-publisher">
+						<label id="news-publisher-label" className="block mb-1 font-semibold text-sm" htmlFor="news-publisher">
 							News Publisher:
 						</label>
 						<input
@@ -153,7 +153,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 				</div>
 
 				<div className="mb-4">
-					<label id="news-content-label" className="block mb-1 font-semibold" htmlFor="news-content">
+					<label id="news-content-label" className="block mb-1 font-semibold text-sm" htmlFor="news-content">
 						News Content:
 					</label>
 					<textarea
@@ -174,21 +174,20 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					</p>
 				</div>
 
-				<div className="mb-8 grid gap-2 grid-cols-3">
-					{/* Type */}
+				<div className="mb-8 flex flex-row gap-8">
 					<div>
-						<label className="block mb-1 font-semibold">Type:</label>
+						<label className="block mb-1 font-semibold text-sm">Type:</label>
 						<div className="inline-flex">
 							<button
 								type="button"
-								className={`border p-1 px-4 rounded-l text-sm ${news.type === "jpeg" ? "bg-primary text-white border-primary" : "border-r-0"}`}
+								className={`border border-r-0 rounded-l p-1 px-3 text-xs font-medium ${news.type === "jpeg" ? "bg-primary text-white border-primary" : ""}`}
 								onClick={() => handleImageFormatChange("jpeg")}
 							>
 								Jpeg
 							</button>
 							<button
 								type="button"
-								className={`border p-1 px-4 rounded-r text-sm ${news.type === "png" ? "bg-primary text-white border-primary" : "border-l-0"}`}
+								className={`border border-l-0 rounded-r p-1 px-3 text-xs font-medium ${news.type === "png" ? "bg-primary text-white border-primary" : ""}`}
 								onClick={() => handleImageFormatChange("png")}
 							>
 								Png
@@ -198,25 +197,18 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 
 					{/* Size */}
 					<div>
-						<label className="block mb-1 font-semibold">Size:</label>
+						<label className="block mb-1 font-semibold text-sm">Size:</label>
 						<div className="inline-flex">
 							<button
 								type="button"
-								className={`border p-1 px-4 rounded-l text-sm ${news.scale === 1 ? "bg-primary text-white border-primary" : "border-r-0"}`}
-								onClick={() => handleScaleChange(1)}
-							>
-								1x
-							</button>
-							<button
-								type="button"
-								className={`border p-1 px-4 text-sm ${news.scale === 2 ? "bg-primary text-white border-primary" : "border-l-0 border-r-0"}`}
+								className={`border border-r-0 rounded-l p-1 px-3 text-xs font-medium ${news.scale === 2 ? "bg-primary text-white border-primary" : ""}`}
 								onClick={() => handleScaleChange(2)}
 							>
 								2x
 							</button>
 							<button
 								type="button"
-								className={`border p-1 px-4 rounded-r text-sm ${news.scale === 4 ? "bg-primary text-white border-primary" : "border-l-0"}`}
+								className={`border border-l-0 rounded-r p-1 px-3 text-xs font-medium ${news.scale === 4 ? "bg-primary text-white border-primary" : ""}`}
 								onClick={() => handleScaleChange(4)}
 							>
 								4x
@@ -224,11 +216,11 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 						</div>
 					</div>
 
-					{/* Quality */}
 					<div>
-						<label className="block mb-1 font-semibold">Quality: {news.quality}</label>
+						<label className="block mb-1 font-semibold text-sm">
+							Quality: <span className="text-xs text-primary">{news.quality}</span>
+						</label>
 						<div className="relative">
-							{/* Range slider */}
 							<input
 								type="range"
 								min="0.35"
@@ -238,12 +230,10 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 								onChange={handleQualityChange}
 								className="w-full h-1 bg-slate-300 appearance-none rounded-lg cursor-pointer focus:outline-none"
 								style={{
-									/* Thumb color and styling */
 									WebkitAppearance: "none",
 									appearance: "none",
 								}}
 							/>
-							{/* Custom styling for the thumb (trigger) */}
 							<style jsx>{`
 								input[type="range"]::-webkit-slider-thumb {
 									-webkit-appearance: none;
@@ -270,18 +260,18 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					<button
 						onClick={handleGenerate}
 						type="button"
-						className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg shadow-sm hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+						className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-white font-semibold h-12 px-6 rounded-lg inline-flex items-center justify-center whitespace-nowrap"
 					>
-						<AiOutlineFire className="mr-2" />
-						Generate Preview
+						<AiOutlineFire className="mr-1" />
+						Generate
 					</button>
 					<button
 						onClick={handleClear}
 						type="button"
-						className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-secondary rounded-lg shadow-sm hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+						className="bg-transparent border border-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-gray-800 font-semibold h-12 px-6 rounded-lg inline-flex items-center justify-center whitespace-nowrap"
 					>
-						<AiOutlineClear className="mr-2" />
-						Reset
+						<AiOutlineClear className="mr-1" />
+						Clear
 					</button>
 				</div>
 			</form>
