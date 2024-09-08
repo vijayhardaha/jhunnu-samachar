@@ -23,7 +23,7 @@ const Footer = () => (
 				<div className="container mx-auto">
 					<div className="mb-8 leading-relaxed">
 						<h2 className="mb-2 text-3xl font-bold">Welcome to Jhunnu Samachar</h2>
-						<p>
+						<p className="text-lg">
 							Jhunnu Samachar is your go-to web app for creating and sharing funny fake news stories. With an
 							easy-to-use interface, you can generate and customize amusing headlines and content to entertain your
 							friends and family. Start crafting your next hilarious news article now!
