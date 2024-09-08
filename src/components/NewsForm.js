@@ -1,9 +1,10 @@
 /* eslint-disable react/no-unknown-property */
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import domtoimage from "dom-to-image";
 import PropTypes from "prop-types";
 import { AiOutlineFire, AiOutlineClear } from "react-icons/ai";
+import { GoGear } from "react-icons/go";
 
 import NewsPreview from "./NewsPreview";
 
@@ -18,7 +19,29 @@ import NewsPreview from "./NewsPreview";
  */
 const NewsForm = ({ news, setNews, setPreview }) => {
 	const [contentLength, setContentLength] = useState(news.content.length);
+	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+	const dropdownRef = useRef(null);
+
 	const maxContentLength = 1500;
+
+	const toggleDropdown = () => {
+		setIsDropdownOpen((prev) => !prev);
+	};
+
+	useEffect(() => {
+		/**
+		 * Handles clicks outside the color picker to close it if the click is outside the color picker element.
+		 * @param {MouseEvent} event - The mouse event triggered by the user clicking.
+		 */
+		const handleClickOutside = (event) => {
+			if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+				setIsDropdownOpen(false);
+			}
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => document.removeEventListener("mousedown", handleClickOutside);
+	}, []);
 
 	/**
 	 * Handles changes to form input fields and updates the news data.
@@ -30,45 +53,10 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 		if (name === "content") {
 			setContentLength(value.length);
 		}
+
 		setNews((prevNews) => ({
 			...prevNews,
 			[name]: value,
-		}));
-	};
-
-	/**
-	 * Updates the image format in the news data.
-	 *
-	 * @param {string} format - The selected image format ('jpeg' or 'png').
-	 */
-	const handleImageFormatChange = (format) => {
-		setNews((prevNews) => ({
-			...prevNews,
-			type: format,
-		}));
-	};
-
-	/**
-	 * Updates the scale in the news data.
-	 *
-	 * @param {number} newScale - The new scale value (e.g., 1, 2, 4).
-	 */
-	const handleScaleChange = (newScale) => {
-		setNews((prevNews) => ({
-			...prevNews,
-			scale: newScale,
-		}));
-	};
-
-	/**
-	 * Updates the quality in the news data.
-	 *
-	 * @param {Event} e - The change event from the range input field.
-	 */
-	const handleQualityChange = (e) => {
-		setNews((prevNews) => ({
-			...prevNews,
-			quality: parseFloat(e.target.value),
 		}));
 	};
 
@@ -102,13 +90,14 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 			height,
 			quality: parseFloat(news.quality),
 			style: {
-				transform: `scale(${Math.round(news.scale)})`,
+				transform: `scale(${Math.round(parseInt(news.scale, 10))})`,
 				transformOrigin: "top left",
 			},
 		};
 
+		console.log(options);
 		const dataUrl =
-			news.type === "png" ? await domtoimage.toPng(node, options) : await domtoimage.toJpeg(node, options);
+			news.format === "png" ? await domtoimage.toPng(node, options) : await domtoimage.toJpeg(node, options);
 
 		setPreview(dataUrl);
 	};
@@ -126,7 +115,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 							id="news-heading"
 							name="heading"
 							aria-labelledby="news-heading-label"
-							className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
+							className="w-full p-3 border border-slate-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
 							value={news.heading}
 							onChange={handleChange}
 							aria-required="true"
@@ -143,7 +132,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 							id="news-publisher"
 							name="publisher"
 							aria-labelledby="news-publisher-label"
-							className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
+							className="w-full p-3 border border-slate-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
 							value={news.publisher}
 							onChange={handleChange}
 							aria-required="true"
@@ -161,7 +150,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 						name="content"
 						aria-labelledby="news-content-label"
 						aria-describedby="content-length-description"
-						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
+						className="w-full p-3 border border-slate-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
 						rows="12"
 						value={news.content}
 						onChange={handleChange}
@@ -169,114 +158,96 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 						aria-required="true"
 						required
 					/>
-					<p id="content-length-description" className="text-gray-600 text-sm mt-1">
+					<p id="content-length-description" className="text-slate-600 text-sm mt-1">
 						{maxContentLength - contentLength} / {maxContentLength} characters remaining
 					</p>
 				</div>
 
-				<div className="mb-8 flex flex-row gap-8">
-					<div>
-						<label className="block mb-1 font-semibold" htmlFor="image-format">
-							Type:
-						</label>
-						<div className="inline-flex">
-							<button
-								id="jpeg-button"
-								type="button"
-								className={`border border-r-0 rounded-l p-1 px-3 text-xs font-medium ${news.type === "jpeg" ? "bg-slate-900 text-white border-slate-900" : ""}`}
-								onClick={() => handleImageFormatChange("jpeg")}
-							>
-								Jpeg
-							</button>
-							<button
-								id="png-button"
-								type="button"
-								className={`border border-l-0 rounded-r p-1 px-3 text-xs font-medium ${news.type === "png" ? "bg-slate-900 text-white border-slate-900" : ""}`}
-								onClick={() => handleImageFormatChange("png")}
-							>
-								Png
-							</button>
-						</div>
-					</div>
+				<div className="relative mb-6 inline-flex" ref={dropdownRef}>
+					<button
+						type="button"
+						onClick={toggleDropdown}
+						className="bg-transparent border border-slate-400 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 text-sm text-slate-800 font-semibold px-3 h-10 rounded-lg inline-flex items-center justify-center whitespace-nowrap"
+					>
+						<GoGear className="mr-1" />
+						Image Settings
+					</button>
+					{isDropdownOpen && (
+						<div className="absolute left-0 top-full mt-1 z-10 bg-white shadow-lg border border-slate-200 rounded-lg p-4 py-3">
+							<div className="flex flex-row gap-4">
+								{/* Image Format Dropdown */}
+								<div>
+									<label className="block mb-1 font-semibold text-sm" htmlFor="image-format">
+										Format:
+									</label>
+									<select
+										id="image-format"
+										name="format"
+										value={news.format}
+										onChange={handleChange}
+										className="border rounded p-2 text-xs font-medium"
+									>
+										<option value="jpeg">JPEG</option>
+										<option value="png">PNG</option>
+									</select>
+								</div>
 
-					<div>
-						<label className="block mb-1 font-semibold" htmlFor="scale-options">
-							Size:
-						</label>
-						<div className="inline-flex">
-							<button
-								id="scale-2x"
-								type="button"
-								className={`border border-r-0 rounded-l p-1 px-3 text-xs font-medium ${news.scale === 2 ? "bg-slate-900 text-white border-slate-900" : ""}`}
-								onClick={() => handleScaleChange(2)}
-							>
-								2x
-							</button>
-							<button
-								id="scale-4x"
-								type="button"
-								className={`border border-l-0 rounded-r p-1 px-3 text-xs font-medium ${news.scale === 4 ? "bg-slate-900 text-white border-slate-900" : ""}`}
-								onClick={() => handleScaleChange(4)}
-							>
-								4x
-							</button>
-						</div>
-					</div>
+								{/* Scale Dropdown */}
+								<div>
+									<label className="block mb-1 font-semibold text-sm" htmlFor="scale-options">
+										Size:
+									</label>
+									<select
+										id="scale-options"
+										name="scale"
+										value={news.scale}
+										onChange={handleChange}
+										className="border rounded p-2 text-xs font-medium"
+									>
+										<option value="2">Small</option>
+										<option value="3">Medium</option>
+										<option value="4">Large</option>
+									</select>
+								</div>
 
-					<div>
-						<label className="block mb-1 font-semibold" htmlFor="quality-slider">
-							Quality: <span className="text-xs bg-yellow-100 px-2 py-0.5 rounded-sm">{news.quality}</span>
-						</label>
-						<div className="relative">
-							<input
-								id="quality-slider"
-								type="range"
-								min="0.35"
-								max="1"
-								step="0.05"
-								value={news.quality}
-								onChange={handleQualityChange}
-								className="w-full h-1 bg-slate-400 appearance-none rounded-lg cursor-pointer focus:outline-none"
-								style={{
-									WebkitAppearance: "none",
-									appearance: "none",
-								}}
-							/>
-							<style jsx>{`
-								input[type="range"]::-webkit-slider-thumb {
-									-webkit-appearance: none;
-									appearance: none;
-									width: 14px;
-									height: 14px;
-									border-radius: 50%;
-									background: #0f172a;
-									cursor: pointer;
-								}
-								input[type="range"]::-moz-range-thumb {
-									width: 14px;
-									height: 14px;
-									border-radius: 50%;
-									background: #0f172a;
-									cursor: pointer;
-								}
-							`}</style>
+								{/* Quality Dropdown */}
+								<div>
+									<label className="block mb-1 font-semibold text-sm" htmlFor="quality-dropdown">
+										Quality:
+									</label>
+									<select
+										id="quality-dropdown"
+										name="quality"
+										value={news.quality}
+										onChange={handleChange}
+										className="border rounded p-2 text-xs font-medium"
+									>
+										<option value="0.35">Basic</option>
+										<option value="0.50">Standard</option>
+										<option value="0.65">Enhanced</option>
+										<option value="0.75">High Definition</option>
+										<option value="0.85">Ultra HD</option>
+										<option value="1">Super High</option>
+									</select>
+								</div>
+							</div>
 						</div>
-					</div>
+					)}
 				</div>
 
 				<div className="flex space-x-4">
 					<button
-						onClick={handleGenerate}
 						type="button"
-						className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-base sm:text-lg text-white font-semibold h-12 px-6 rounded-lg inline-flex items-center justify-center whitespace-nowrap"
+						onClick={handleGenerate}
+						className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 text-base sm:text-lg text-white font-semibold h-12 px-6 rounded-lg inline-flex items-center justify-center whitespace-nowrap"
 					>
 						<AiOutlineFire className="mr-1" />
 						Generate
 					</button>
 					<button
-						onClick={handleClear}
 						type="button"
-						className="bg-transparent border border-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2 focus:ring-offset-gray-100 text-base sm:text-lg text-gray-800 font-semibold h-12 px-6 rounded-lg inline-flex items-center justify-center whitespace-nowrap"
+						onClick={handleClear}
+						className="bg-transparent border border-slate-400 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 text-base sm:text-lg text-slate-800 font-semibold h-12 px-6 rounded-lg inline-flex items-center justify-center whitespace-nowrap"
 					>
 						<AiOutlineClear className="mr-1" />
 						Clear
@@ -293,9 +264,9 @@ NewsForm.propTypes = {
 		heading: PropTypes.string.isRequired,
 		content: PropTypes.string.isRequired,
 		publisher: PropTypes.string.isRequired,
-		type: PropTypes.oneOf(["jpeg", "png"]),
-		scale: PropTypes.number,
-		quality: PropTypes.number,
+		format: PropTypes.oneOf(["jpeg", "png"]),
+		scale: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+		quality: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 	}).isRequired,
 	setNews: PropTypes.func.isRequired,
 	setPreview: PropTypes.func.isRequired,

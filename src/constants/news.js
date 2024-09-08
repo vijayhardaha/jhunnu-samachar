@@ -10,7 +10,7 @@ export const DEFAULT_NEWS_DATA = {
 		"The guru, known for his calm demeanor, embraced the moment, declaring that Whiskers had achieved ‘enlightenment’ faster than anyone in the room. The class ended with laughter and a new spiritual lesson: sometimes, enlightenment comes on four paws and a tail!\n\n" +
 		"Attendees left the session with smiles and a new story to tell, while Whiskers basked in the newfound fame, seemingly unfazed by the commotion.",
 	publisher: "Jhunnu Lal",
-	type: "jpeg",
-	scale: 2,
-	quality: 0.5,
+	format: "jpeg",
+	scale: 3,
+	quality: 0.75,
 };
