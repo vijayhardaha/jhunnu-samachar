@@ -12,7 +12,7 @@ import { getShareUrl } from "@/utils/share";
  */
 const Header = () => {
 	return (
-		<header className="py-4">
+		<header className="py-2 sm:py-4">
 			<div className="container mx-auto flex items-center justify-between">
 				{/* Logo and Title Link */}
 				<Link href="/" aria-label="Jhunnu Samachar Home" className="flex items-center space-x-3">
