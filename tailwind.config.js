@@ -4,19 +4,22 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				primary: "#603F26", // Primary color
-				secondary: "#6C4E31", // Secondary color
-				accent: "#FFDBB5", // Accent color
-				highlight: "#FFEAC5", // Highlight color
+				primary: "#603F26",
+				secondary: "#6C4E31",
+				accent: "#FFDBB5",
+				highlight: "#FFEAC5",
 			},
 			container: {
 				screens: {
-					lg: "1024px",
+					sm: "540px",
+					md: "720px",
+					lg: "960px",
 				},
 				padding: {
-					DEFAULT: "1.5rem",
-					sm: "2rem",
-					lg: "2.25rem",
+					DEFAULT: "1rem",
+					sm: "1rem",
+					md: "1.5rem",
+					lg: "2rem",
 				},
 			},
 		},
