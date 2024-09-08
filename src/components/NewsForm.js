@@ -118,7 +118,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 			<form className="mb-10">
 				<div className="grid gap-4 mb-4 md:grid-cols-2 md:gap-6">
 					<div>
-						<label id="news-heading-label" className="block mb-1 font-semibold text-sm" htmlFor="news-heading">
+						<label id="news-heading-label" className="block mb-1 font-semibold" htmlFor="news-heading">
 							News Heading:
 						</label>
 						<input
@@ -126,7 +126,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 							id="news-heading"
 							name="heading"
 							aria-labelledby="news-heading-label"
-							className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-base"
+							className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
 							value={news.heading}
 							onChange={handleChange}
 							aria-required="true"
@@ -135,7 +135,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					</div>
 
 					<div>
-						<label id="news-publisher-label" className="block mb-1 font-semibold text-sm" htmlFor="news-publisher">
+						<label id="news-publisher-label" className="block mb-1 font-semibold" htmlFor="news-publisher">
 							News Publisher:
 						</label>
 						<input
@@ -143,7 +143,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 							id="news-publisher"
 							name="publisher"
 							aria-labelledby="news-publisher-label"
-							className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-base"
+							className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
 							value={news.publisher}
 							onChange={handleChange}
 							aria-required="true"
@@ -153,7 +153,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 				</div>
 
 				<div className="mb-4">
-					<label id="news-content-label" className="block mb-1 font-semibold text-sm" htmlFor="news-content">
+					<label id="news-content-label" className="block mb-1 font-semibold" htmlFor="news-content">
 						News Content:
 					</label>
 					<textarea
@@ -161,7 +161,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 						name="content"
 						aria-labelledby="news-content-label"
 						aria-describedby="content-length-description"
-						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-base"
+						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
 						rows="12"
 						value={news.content}
 						onChange={handleChange}
@@ -176,7 +176,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 
 				<div className="mb-8 flex flex-row gap-8">
 					<div>
-						<label className="block mb-1 font-semibold text-sm" htmlFor="image-format">
+						<label className="block mb-1 font-semibold" htmlFor="image-format">
 							Type:
 						</label>
 						<div className="inline-flex">
@@ -200,7 +200,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					</div>
 
 					<div>
-						<label className="block mb-1 font-semibold text-sm" htmlFor="scale-options">
+						<label className="block mb-1 font-semibold" htmlFor="scale-options">
 							Size:
 						</label>
 						<div className="inline-flex">
@@ -224,7 +224,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					</div>
 
 					<div>
-						<label className="block mb-1 font-semibold text-sm" htmlFor="quality-slider">
+						<label className="block mb-1 font-semibold" htmlFor="quality-slider">
 							Quality: <span className="text-xs bg-yellow-100 px-2 py-0.5 rounded-sm">{news.quality}</span>
 						</label>
 						<div className="relative">
