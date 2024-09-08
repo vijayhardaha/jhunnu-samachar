@@ -24,20 +24,16 @@ const NewsPreview = ({ news }) => {
 	const contentFontClass = containsHindi(content) ? hindiTextFont.className : englishTextFont.className;
 
 	return (
-		<div className="fixed inset-0 max-w-[600px] overflow-hidden bg-white -z-10 opacity-0">
-			<div id="news-preview" className="relative">
+		<div className="fixed inset-0 max-w-[600px] overflow-hidden bg-white -z-10 opacity-0" aria-hidden="true">
+			<div id="news-preview" className="relative bg-white overflow-hidden">
 				<div
 					className="absolute inset-0 bg-cover bg-center"
 					style={{ backgroundImage: `url('/images/newspaper-bg.webp')`, opacity: 0.45 }}
-					aria-hidden="true"
 				/>
 
 				<div className="relative z-10 p-8 text-black">
 					<div className={`${englishTextFont.className} leading-relaxed`}>
-						<h1
-							className={`text-6xl sm:text-7xl ${titleFont.className} text-center text-primary font-bold mb-8`}
-							aria-labelledby="app-title"
-						>
+						<h1 className={`text-6xl sm:text-7xl ${titleFont.className} text-center text-primary font-bold mb-8`}>
 							Jhunnu Samachar
 						</h1>
 
@@ -50,43 +46,20 @@ const NewsPreview = ({ news }) => {
 
 						<hr className="my-2 h-[2px] bg-black border-0 mb-6" />
 
-						<h2
-							className={`${headingFontClass} text-4xl sm:text-5xl text-secondary font-semibold mb-6 leading-tight`}
-							aria-labelledby="news-heading"
-						>
+						<h2 className={`${headingFontClass} text-4xl sm:text-5xl text-secondary font-semibold mb-6 leading-tight`}>
 							{heading}
 						</h2>
 
-						<p className={`${contentFontClass} text-lg mb-0 whitespace-pre-line`} aria-labelledby="news-content">
-							{content}
-						</p>
+						<p className={`${contentFontClass} text-lg mb-0 whitespace-pre-line`}>{content}</p>
 					</div>
 
 					<div className="mt-8 text-center text-xs">
 						<hr className="my-6 h-[2px] w-[100px] bg-primary border-0 mx-auto" />
 						<p>
-							Visit us at{" "}
-							<a
-								href="https://jhunnusamachar.vercel.app"
-								className="font-semibold text-primary underline"
-								rel="noopener noreferrer"
-								target="_blank"
-								aria-label="Visit Jhunnu Samachar website"
-							>
-								jhunnusamachar.vercel.app
-							</a>
+							Visit us at <span className="font-semibold text-primary underline">jhunnusamachar.vercel.app</span>
 						</p>
 						<p className="mt-2">
-							This app is built by{" "}
-							<a
-								href="https://twitter.com/vijayhardaha"
-								className="font-semibold text-primary underline"
-								rel="noopener noreferrer"
-								target="_blank"
-								aria-label="Visit Vijay Hardaha's Twitter profile"
-							>
-								Vijay Hardaha
-							</a>
+							This app is built by <span className="font-semibold text-primary underline">Vijay Hardaha</span>
 						</p>
 					</div>
 				</div>
