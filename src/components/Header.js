@@ -17,13 +17,10 @@ const Header = () => {
 				{/* Logo and Title Link */}
 				<Link href="/" aria-label="Jhunnu Samachar Home" className="flex items-center space-x-3">
 					<div style={{ margin: "-6px" }}>
-						<Logo
-							size={50} // Default size
-							className="w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20" // Responsive sizes
-						/>
+						<Logo size={50} className="w-14 h-14 md:w-20 md:h-20" />
 					</div>
 
-					<h1 className="inline font-semibold text-primary text-base sm:text-lg md:text-lg">Jhunnu Samachar</h1>
+					<h1 className="inline font-semibold text-primary text-lg md:text-xl">Jhunnu Samachar</h1>
 				</Link>
 
 				{/* Action Links */}
@@ -32,7 +29,7 @@ const Header = () => {
 						href="https://github.com/vijayhardaha/jhunnu-samachar"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="hidden sm:flex items-center gap-1 text-xs sm:text-sm font-semibold text-gray-900 underline hover:no-underline"
+						className="hidden sm:flex items-center gap-1 text-sm sm:text-base font-semibold text-gray-900 underline hover:no-underline"
 						aria-label="View the source code on GitHub"
 					>
 						<LuCode2 className="text-sm sm:text-base" aria-hidden="true" />
@@ -42,7 +39,7 @@ const Header = () => {
 						href={getShareUrl()}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="flex items-center gap-1 text-xs sm:text-sm font-semibold text-gray-900 underline hover:no-underline"
+						className="flex items-center gap-1 text-sm sm:text-base font-semibold text-gray-900 underline hover:no-underline"
 						aria-label="Share this App on WhatsApp"
 					>
 						<AiOutlineWhatsApp className="text-sm sm:text-base" aria-hidden="true" />
