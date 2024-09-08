@@ -24,14 +24,14 @@ const NewsPreview = ({ news }) => {
 	const contentFontClass = containsHindi(content) ? hindiTextFont.className : englishTextFont.className;
 
 	return (
-		<div className="fixed inset-0 max-w-[600px] overflow-hidden bg-white -z-10 opacity-0" aria-hidden="true">
+		<div className="fixed inset-0 max-w-[600px] overflow-hidden -z-10 opacity-0" aria-hidden="true">
 			<div id="news-preview" className="relative bg-white overflow-hidden">
 				<div
-					className="absolute inset-0 bg-cover bg-center"
+					className="absolute inset-0 bg-cover bg-center z-10"
 					style={{ backgroundImage: `url('/images/newspaper-bg.webp')`, opacity: 0.45 }}
 				/>
 
-				<div className="relative z-10 p-8 text-black">
+				<div className="relative z-20 p-8 text-black">
 					<div className={`${englishTextFont.className} leading-relaxed`}>
 						<h1 className={`text-6xl sm:text-7xl ${titleFont.className} text-center text-primary font-bold mb-8`}>
 							Jhunnu Samachar
