@@ -7,24 +7,7 @@ import { AiOutlineFire, AiOutlineClear } from "react-icons/ai";
 import { GoGear } from "react-icons/go";
 
 import NewsPreview from "./NewsPreview";
-
-function getQualityLabel(value) {
-	if (typeof value === "string") value = parseFloat(value);
-	if (value <= 0.35) return "Basic"; // Basic quality, minimal details
-	if (value <= 0.5) return "Standard"; // Standard quality, decent for most uses
-	if (value <= 0.65) return "Enhanced"; // Enhanced quality, more detailed
-	if (value <= 0.75) return "High Definition"; // High Definition, very detailed
-	if (value <= 0.85) return "Ultra HD"; // Ultra HD, top quality for the highest detail
-	return "Super High"; // Super High quality, maximum detail
-}
-
-function getSizeLabel(value) {
-	if (typeof value === "string") value = parseFloat(value);
-	if (value <= 2) return "Small"; // 2 and below maps to Small
-	if (value <= 3) return "Medium"; // Between 2 and 3 maps to Medium
-	if (value <= 4) return "Large"; // Between 3 and 4 maps to Large
-	return "Extra Large"; // Above 4 maps to Extra Large
-}
+import { getQualityLabel, getSizeLabel } from "@/utils/form";
 
 /**
  * Form for inputting news details and generating preview.
@@ -100,15 +83,17 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 		const node = document.getElementById("news-preview");
 
 		const rect = node.getBoundingClientRect();
-		const width = rect.width * news.scale;
-		const height = rect.height * news.scale;
+		const scale = parseInt(news.scale, 10);
+		const quality = parseFloat(news.quality);
+		const width = rect.width * scale;
+		const height = rect.height * scale;
 
 		const options = {
 			width,
 			height,
-			quality: parseFloat(news.quality),
+			quality: quality,
 			style: {
-				transform: `scale(${Math.round(parseInt(news.scale, 10))})`,
+				transform: `scale(${Math.round(scale)})`,
 				transformOrigin: "top left",
 			},
 		};
