@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AiOutlineWhatsApp } from "react-icons/ai";
+import { LuCode2 } from "react-icons/lu";
 
 import Logo from "./Logo";
 import { getShareUrl } from "@/utils/share";
@@ -11,26 +12,43 @@ import { getShareUrl } from "@/utils/share";
  */
 const Header = () => {
 	return (
-		<header className="pb-2 pt-3">
+		<header className="py-4">
 			<div className="container mx-auto flex items-center justify-between">
-				<Link href="/" className="flex items-center space-x-3" aria-label="Jhunnu Samachar Home">
+				{/* Logo and Title Link */}
+				<Link href="/" aria-label="Jhunnu Samachar Home" className="flex items-center space-x-3">
 					<div style={{ margin: "-6px" }}>
-						<Logo size={50} />
+						<Logo
+							size={50} // Default size
+							className="w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20" // Responsive sizes
+						/>
 					</div>
 
-					<h1 className="inline font-semibold text-primary">Jhunnu Samachar</h1>
+					<h1 className="inline font-semibold text-primary text-base sm:text-lg md:text-lg">Jhunnu Samachar</h1>
 				</Link>
 
-				<a
-					href={getShareUrl()}
-					target="_blank"
-					rel="noopener noreferrer"
-					className="flex items-center justify-center text-sm font-semibold text-gray-800 underline hover:no-underline"
-					aria-label="Share on WhatsApp"
-				>
-					<AiOutlineWhatsApp className="mr-1 text-base" aria-hidden="true" />
-					<span>Share this App</span>
-				</a>
+				{/* Action Links */}
+				<div className="flex items-center gap-3">
+					<a
+						href="https://github.com/vijayhardaha/jhunnu-samachar"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="hidden sm:flex items-center gap-1 text-xs sm:text-sm font-semibold text-gray-900 underline hover:no-underline"
+						aria-label="View the source code on GitHub"
+					>
+						<LuCode2 className="text-sm sm:text-base" aria-hidden="true" />
+						<span>Source code</span>
+					</a>
+					<a
+						href={getShareUrl()}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="flex items-center gap-1 text-xs sm:text-sm font-semibold text-gray-900 underline hover:no-underline"
+						aria-label="Share this App on WhatsApp"
+					>
+						<AiOutlineWhatsApp className="text-sm sm:text-base" aria-hidden="true" />
+						<span>Share this App</span>
+					</a>
+				</div>
 			</div>
 		</header>
 	);

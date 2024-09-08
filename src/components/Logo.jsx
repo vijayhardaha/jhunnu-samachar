@@ -5,9 +5,10 @@ import PropTypes from "prop-types";
  *
  * @param {Object} props - Component properties.
  * @param {number} props.size - Size of the logo in pixels.
+ * @param {Object} [props.props] - Additional properties to pass to the SVG element.
  * @returns {JSX.Element} The logo component.
  */
-const Logo = ({ size }) => (
+const Logo = ({ size, ...props }) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 341 343"
@@ -16,6 +17,7 @@ const Logo = ({ size }) => (
 		height={size}
 		aria-labelledby="logo-title"
 		role="img"
+		{...props}
 	>
 		<title id="logo-title">Jhunnu Samachar Logo</title>
 		<path
@@ -39,6 +41,7 @@ const Logo = ({ size }) => (
 
 Logo.propTypes = {
 	size: PropTypes.number.isRequired,
+	props: PropTypes.object,
 };
 
 export default Logo;
