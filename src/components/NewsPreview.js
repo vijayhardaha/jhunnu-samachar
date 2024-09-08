@@ -32,7 +32,7 @@ const NewsPreview = ({ news }) => {
 				/>
 
 				<div className="relative z-20 p-8 text-black">
-					<div className={`${englishTextFont.className} leading-relaxed`}>
+					<div className={`${englishTextFont.className}`}>
 						<h1 className={`text-6xl sm:text-7xl ${titleFont.className} text-center text-primary font-bold mb-8`}>
 							Jhunnu Samachar
 						</h1>
@@ -46,11 +46,13 @@ const NewsPreview = ({ news }) => {
 
 						<hr className="my-2 h-[2px] bg-black border-0 mb-6" />
 
-						<h2 className={`${headingFontClass} text-4xl sm:text-5xl text-secondary font-semibold mb-6 leading-tight`}>
+						<h2
+							className={`${headingFontClass} text-4xl sm:text-5xl leading-tight sm:leading-tight text-secondary font-semibold mb-6`}
+						>
 							{heading}
 						</h2>
 
-						<p className={`${contentFontClass} text-lg mb-0 whitespace-pre-line`}>{content}</p>
+						<p className={`${contentFontClass} text-lg leading-relaxed mb-0 whitespace-pre-line`}>{content}</p>
 					</div>
 
 					<div className="mt-8 text-center text-xs">
