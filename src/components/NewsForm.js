@@ -126,7 +126,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 							id="news-heading"
 							name="heading"
 							aria-labelledby="news-heading-label"
-							className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+							className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
 							value={news.heading}
 							onChange={handleChange}
 							aria-required="true"
@@ -143,7 +143,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 							id="news-publisher"
 							name="publisher"
 							aria-labelledby="news-publisher-label"
-							className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+							className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
 							value={news.publisher}
 							onChange={handleChange}
 							aria-required="true"
@@ -161,7 +161,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 						name="content"
 						aria-labelledby="news-content-label"
 						aria-describedby="content-length-description"
-						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
 						rows="12"
 						value={news.content}
 						onChange={handleChange}
@@ -276,7 +276,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					<button
 						onClick={handleClear}
 						type="button"
-						className="bg-transparent border border-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-gray-800 font-semibold h-12 px-6 rounded-lg inline-flex items-center justify-center whitespace-nowrap"
+						className="bg-transparent border border-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2 focus:ring-offset-gray-100 text-gray-800 font-semibold h-12 px-6 rounded-lg inline-flex items-center justify-center whitespace-nowrap"
 					>
 						<AiOutlineClear className="mr-1" />
 						Clear
