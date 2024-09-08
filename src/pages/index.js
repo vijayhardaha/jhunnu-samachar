@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import NewsForm from "@/components/NewsForm";
 import PreviewSection from "@/components/PreviewSection";
-import { DEFAULT_NEWS_DATA } from "@/constants/newsConstants";
+import { DEFAULT_NEWS_DATA } from "@/constants/news";
 
 /**
  * Main component for the "Jhunnu Samachar" newspaper clipping generator.

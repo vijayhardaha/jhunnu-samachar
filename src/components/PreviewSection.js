@@ -13,9 +13,9 @@ import {
 	AiOutlineCheck,
 } from "react-icons/ai";
 
-import { DEFAULT_NEWS_DATA } from "../constants/newsConstants";
-import { SITE_URL } from "../constants/seo";
-import { extractExtensionFromBase64, generateUniqueId } from "../utils/downloadUtils";
+import { DEFAULT_NEWS_DATA } from "@/constants/news";
+import { SITE_URL } from "@/constants/seo";
+import { extractExtensionFromBase64, generateUniqueId } from "@/utils/download";
 
 /**
  * Reusable Button component for various actions.
