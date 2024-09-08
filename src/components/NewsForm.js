@@ -162,7 +162,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 						aria-labelledby="news-content-label"
 						aria-describedby="content-length-description"
 						className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-base"
-						rows="8"
+						rows="12"
 						value={news.content}
 						onChange={handleChange}
 						maxLength={maxContentLength}
