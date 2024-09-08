@@ -1,4 +1,4 @@
-import { Abril_Fatface, Mate, Noto_Serif_Devanagari, Palanquin_Dark, Pirata_One } from "next/font/google";
+import { Abril_Fatface, Mate, Noto_Serif_Devanagari, Rozha_One, Pirata_One } from "next/font/google";
 
 /**
  * Font configuration for titles.
@@ -22,8 +22,8 @@ export const englishHeadingFont = Abril_Fatface({
  * Font configuration for Hindi headings.
  * @type {import("next/font").FontConfig}
  */
-export const hindiHeadingFont = Palanquin_Dark({
-	weight: ["400", "600", "700"],
+export const hindiHeadingFont = Rozha_One({
+	weight: ["400"],
 	subsets: ["devanagari"],
 });
 
@@ -46,19 +46,12 @@ export const hindiTextFont = Noto_Serif_Devanagari({
 });
 
 /**
- * Function to get the appropriate font class based on text language.
+ * Checks if the given text contains Hindi characters.
  *
- * @param {string} text - The text to be checked for language.
- * @param {boolean} [isHeading=false] - Whether the text is a heading or not.
- * @returns {string} - The font class name based on the language and heading status.
+ * @param {string} text - The text to check.
+ * @returns {boolean} True if the text contains Hindi characters, false otherwise.
  */
-export const getFontClass = (text, isHeading = false) => {
-	// Basic check for Devanagari script (Hindi)
-	const isHindi = /[\u0900-\u097F]/.test(text);
-
-	if (isHeading) {
-		return isHindi ? hindiHeadingFont.className : englishHeadingFont.className;
-	} else {
-		return isHindi ? hindiTextFont.className : englishTextFont.className;
-	}
+export const containsHindi = (text) => {
+	const hindiRegex = /[\u0900-\u097F]/;
+	return hindiRegex.test(text);
 };
