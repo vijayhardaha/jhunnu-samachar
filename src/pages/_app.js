@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "../styles/globals.css";
 import SEO from "@/components/SEO";
 
-const font = Zilla_Slab({ subsets: ["latin"], weight: ["400", "700"] });
+const font = Zilla_Slab({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
 /**
  * Main App component for the "Jhunnu Samachar" application.
