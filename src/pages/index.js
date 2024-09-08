@@ -21,7 +21,7 @@ const Home = () => {
 		<div className="min-h-screen">
 			<Header />
 
-			<main className="container my-8 mx-auto">
+			<main className="container mb-8 mt-2 sm:mt-4 md:mt-6 mx-auto">
 				<p className="text-lg mb-6 leading-relaxed font-medium">
 					Craft and share funny fake news with Jhunnu Samachar. Easily create hilarious headlines and content to
 					entertain everyone!
