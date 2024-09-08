@@ -8,6 +8,24 @@ import { GoGear } from "react-icons/go";
 
 import NewsPreview from "./NewsPreview";
 
+function getQualityLabel(value) {
+	if (typeof value === "string") value = parseFloat(value);
+	if (value <= 0.35) return "Basic"; // Basic quality, minimal details
+	if (value <= 0.5) return "Standard"; // Standard quality, decent for most uses
+	if (value <= 0.65) return "Enhanced"; // Enhanced quality, more detailed
+	if (value <= 0.75) return "High Definition"; // High Definition, very detailed
+	if (value <= 0.85) return "Ultra HD"; // Ultra HD, top quality for the highest detail
+	return "Super High"; // Super High quality, maximum detail
+}
+
+function getSizeLabel(value) {
+	if (typeof value === "string") value = parseFloat(value);
+	if (value <= 2) return "Small"; // 2 and below maps to Small
+	if (value <= 3) return "Medium"; // Between 2 and 3 maps to Medium
+	if (value <= 4) return "Large"; // Between 3 and 4 maps to Large
+	return "Extra Large"; // Above 4 maps to Extra Large
+}
+
 /**
  * Form for inputting news details and generating preview.
  *
@@ -169,7 +187,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 						className="bg-transparent border border-slate-400 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 text-sm text-slate-800 font-semibold px-3 h-10 rounded-lg inline-flex items-center justify-center whitespace-nowrap"
 					>
 						<GoGear className="mr-1" />
-						Image Settings
+						Image Settings - {news.format.toUpperCase()} / {getSizeLabel(news.scale)} / {getQualityLabel(news.quality)}
 					</button>
 					{isDropdownOpen && (
 						<div className="absolute left-0 top-full mt-1 z-10 bg-white shadow-lg border border-slate-200 rounded-lg p-4 py-3">
