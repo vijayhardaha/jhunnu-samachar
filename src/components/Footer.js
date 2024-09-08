@@ -50,7 +50,36 @@ const Footer = () => (
 					</div>
 
 					<div className="mb-8 leading-relaxed">
-						<h3 className="mb-2 text-2xl font-semibold">Questions or Feedback</h3>
+						<h3 className="mb-2 text-2xl font-semibold">Get Involved</h3>
+						<p className="mb-4">
+							Help spread the word about Jhunnu Samachar! You can share this amazing tool with others via:
+						</p>
+						<ul className="list-disc pl-5 mb-4">
+							<li>
+								<a
+									href={getShareUrl()}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="inline-flex items-center font-semibold text-primary underline hover:no-underline"
+									aria-label="Share on WhatsApp"
+								>
+									WhatsApp
+									<MdArrowOutward aria-hidden="true" />
+								</a>
+							</li>
+							<li>
+								<a
+									href={getShareUrl("x")}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="inline-flex items-center font-semibold text-primary underline hover:no-underline"
+									aria-label="Share on Twitter"
+								>
+									Twitter
+									<MdArrowOutward aria-hidden="true" />
+								</a>
+							</li>
+						</ul>
 						<p>
 							For any questions or feedback, please reach out to us on Twitter:{" "}
 							<a
@@ -94,34 +123,6 @@ const Footer = () => (
 								<MdArrowOutward aria-hidden="true" />
 							</a>
 							.
-						</p>
-					</div>
-
-					<div className="mb-8 leading-relaxed">
-						<h3 className="mb-2 text-2xl font-semibold">Share</h3>
-						<p>
-							Help spread the word about Kabir Doha Cards! Share this amazing tool with others via WhatsApp:{" "}
-							<a
-								href={getShareUrl()}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="inline-flex items-center font-semibold text-primary underline hover:no-underline"
-								aria-label="Share on WhatsApp"
-							>
-								Share on WhatsApp
-								<MdArrowOutward aria-hidden="true" />
-							</a>{" "}
-							or via Twitter:{" "}
-							<a
-								href={getShareUrl("x")}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="inline-flex items-center font-semibold text-primary underline hover:no-underline"
-								aria-label="Share on Twitter"
-							>
-								Share on Twitter
-								<MdArrowOutward aria-hidden="true" />
-							</a>
 						</p>
 					</div>
 				</div>
