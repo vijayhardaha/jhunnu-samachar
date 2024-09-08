@@ -8,7 +8,15 @@ import PropTypes from "prop-types";
  * @returns {JSX.Element} The logo component.
  */
 const Logo = ({ size }) => (
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 341 343" fill="none" width={size} height={size} aria-labelledby="logo-title" role="img">
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 341 343"
+		fill="none"
+		width={size}
+		height={size}
+		aria-labelledby="logo-title"
+		role="img"
+	>
 		<title id="logo-title">Jhunnu Samachar Logo</title>
 		<path
 			d="M315.131 169.07C316.578 210.53 260.538 256.64 207.003 269.507C153.537 282.168 102.576 261.585 71.6231 220.932C40.4631 180.21 29.2429 119.623 53.4492 88.2819C77.5868 57.1477 136.806 55.6041 195.917 73.1332C255.027 90.6622 313.892 127.679 315.131 169.07Z"

@@ -30,14 +30,20 @@ const NewsPreview = ({ news }) => {
 
 				<div className="relative z-10 p-8 text-black">
 					<div className={`${contentFontClass} leading-relaxed`}>
-						<h1 className={`${titleFont.className} text-6xl sm:text-7xl text-primary mb-8 font-bold text-center`}>Jhunnu Samachar</h1>
+						<h1 className={`${titleFont.className} text-6xl sm:text-7xl text-primary mb-8 font-bold text-center`}>
+							Jhunnu Samachar
+						</h1>
 						<hr className="my-2 h-[2px] bg-black border-0" />
 						<div className={`${englishFontClass} flex flex-row justify-between my-3 px-1 text-xs`}>
 							<span className="whitespace-nowrap">{formatDate(new Date(), "EEEE - dd, MMMM yyyy")}</span>
 							<span className="whitespace-nowrap">Publisher: {publisher}</span>
 						</div>
 						<hr className="my-2 h-[2px] bg-black border-0 mb-6" />
-						<h2 className={`${headingFontClass} text-4xl sm:text-5xl sm:leading-tight leading-tight text-secondary font-semibold mb-6`}>{heading}</h2>
+						<h2
+							className={`${headingFontClass} text-4xl sm:text-5xl sm:leading-tight leading-tight text-secondary font-semibold mb-6`}
+						>
+							{heading}
+						</h2>
 						<p className={`${contentFontClass} mb-0 whitespace-pre-line text-lg`}>{content}</p>
 					</div>
 

@@ -107,7 +107,8 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 			},
 		};
 
-		const dataUrl = news.type === "png" ? await domtoimage.toPng(node, options) : await domtoimage.toJpeg(node, options);
+		const dataUrl =
+			news.type === "png" ? await domtoimage.toPng(node, options) : await domtoimage.toJpeg(node, options);
 
 		setPreview(dataUrl);
 	};
@@ -116,7 +117,8 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 		<>
 			<form className="mb-10">
 				<p id="news-form-description" className="text-sm mb-6 leading-relaxed font-medium">
-					Fill out the form with your headline, publisher, and content. Complete all fields to generate and preview your custom newspaper clipping.
+					Fill out the form with your headline, publisher, and content. Complete all fields to generate and preview your
+					custom newspaper clipping.
 				</p>
 
 				<div className="grid gap-4 mb-4 md:grid-cols-2 md:gap-6">

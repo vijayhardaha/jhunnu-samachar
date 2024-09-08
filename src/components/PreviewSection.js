@@ -173,8 +173,9 @@ const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
 	return (
 		<div className="bg-white">
 			<p className="mb-4 font-medium text-gray-700 mb-4">
-				<strong>Here is your newspaper clipping preview.</strong> You can download it to save or share it with others using the buttons below. If
-				you’d like to make changes, click <strong className="text-yellow-500">[Edit]</strong> to adjust the content, or select{" "}
+				<strong>Here is your newspaper clipping preview.</strong> You can download it to save or share it with others
+				using the buttons below. If you’d like to make changes, click{" "}
+				<strong className="text-yellow-500">[Edit]</strong> to adjust the content, or select{" "}
 				<strong className="text-teal-500">[Generate New]</strong> to create a fresh newspaper clipping.
 			</p>
 
@@ -207,21 +208,48 @@ const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
 			</div>
 
 			<div className="button-group relative flex flex-row space-x-2 mb-4">
-				<Button color="bg-slate-900" text="Download the News Clip" icon={<AiOutlineDownload className="text-2xl" />} onClick={handleDownload} />
-				<Button color="bg-blue-500" text="Share on Twitter" icon={<AiOutlineTwitter className="text-2xl" />} onClick={() => handleShare("twitter")} />
+				<Button
+					color="bg-slate-900"
+					text="Download the News Clip"
+					icon={<AiOutlineDownload className="text-2xl" />}
+					onClick={handleDownload}
+				/>
+				<Button
+					color="bg-blue-500"
+					text="Share on Twitter"
+					icon={<AiOutlineTwitter className="text-2xl" />}
+					onClick={() => handleShare("twitter")}
+				/>
 				<Button
 					color="bg-green-500"
 					text="Share via WhatsApp"
 					icon={<AiOutlineWhatsApp className="text-2xl" />}
 					onClick={() => handleShare("whatsapp")}
 				/>
-				<Button color="bg-yellow-500" text="Edit the News Content" icon={<AiOutlineEdit className="text-2xl" />} onClick={handleEdit} />
-				<Button color="bg-teal-500" text="Generate New Newspaper Clipping" icon={<AiOutlineReload className="text-2xl" />} onClick={handleReset} />
+				<Button
+					color="bg-yellow-500"
+					text="Edit the News Content"
+					icon={<AiOutlineEdit className="text-2xl" />}
+					onClick={handleEdit}
+				/>
+				<Button
+					color="bg-teal-500"
+					text="Generate New Newspaper Clipping"
+					icon={<AiOutlineReload className="text-2xl" />}
+					onClick={handleReset}
+				/>
 			</div>
 
 			{/* Preview Image */}
 			<div className="mx-auto mt-6 max-w-full ">
-				<Image src={previewUrl} alt="News Preview" layout="responsive" width={1200} height={675} className="h-auto rounded-lg" />
+				<Image
+					src={previewUrl}
+					alt="News Preview"
+					layout="responsive"
+					width={1200}
+					height={675}
+					className="h-auto rounded-lg"
+				/>
 			</div>
 		</div>
 	);

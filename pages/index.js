@@ -23,7 +23,8 @@ const Home = () => {
 
 			<main className="container my-8 mx-auto">
 				<p className="text-sm mb-4">
-					Craft and share funny fake news with Jhunnu Samachar. Easily create hilarious headlines and content to entertain everyone!
+					Craft and share funny fake news with Jhunnu Samachar. Easily create hilarious headlines and content to
+					entertain everyone!
 				</p>
 
 				<div className="bg-gray-300 h-[2px] w-[100px] my-4"></div>

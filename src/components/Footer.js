@@ -25,8 +25,9 @@ const Footer = () => (
 					<h2 className="text-3xl mb-4 font-bold">Welcome to Jhunnu Samachar</h2>
 
 					<p className="text-base mb-8">
-						Jhunnu Samachar is your go-to web app for creating and sharing funny fake news stories. With an easy-to-use interface, you can generate
-						and customize amusing headlines and content to entertain your friends and family. Start crafting your next hilarious news article now!
+						Jhunnu Samachar is your go-to web app for creating and sharing funny fake news stories. With an easy-to-use
+						interface, you can generate and customize amusing headlines and content to entertain your friends and
+						family. Start crafting your next hilarious news article now!
 					</p>
 
 					<h3 className="text-2xl mb-2 font-semibold">Getting Started</h3>
@@ -35,15 +36,16 @@ const Footer = () => (
 
 					<ol className="list-decimal list-inside mb-8">
 						<li className="mb-2">
-							<strong>Enter Your Information:</strong> Input your news headline, publisher, and content into the designated fields.
+							<strong>Enter Your Information:</strong> Input your news headline, publisher, and content into the
+							designated fields.
 						</li>
 						<li className="mb-2">
-							<strong>Generate Preview:</strong> Click on the &quot;Generate&quot; button to see how your clipping looks. Make any final
-							adjustments if needed.
+							<strong>Generate Preview:</strong> Click on the &quot;Generate&quot; button to see how your clipping
+							looks. Make any final adjustments if needed.
 						</li>
 						<li className="mb-2">
-							<strong>Download or Share:</strong> Once you’re satisfied with your design, download the clipping as an image file or share it directly
-							on social media platforms.
+							<strong>Download or Share:</strong> Once you’re satisfied with your design, download the clipping as an
+							image file or share it directly on social media platforms.
 						</li>
 					</ol>
 
@@ -51,7 +53,12 @@ const Footer = () => (
 
 					<p className="text-base mb-2">
 						For any questions or feedback, please reach out to us on Twitter:{" "}
-						<a href="https://twitter.com/vijayhardaha" target="_blank" rel="noopener noreferrer" className="underline text-primary font-semibold">
+						<a
+							href="https://twitter.com/vijayhardaha"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="underline text-primary font-semibold"
+						>
 							@vijayhardaha
 						</a>
 						. We’re constantly working to improve Jhunnu Samachar and would love to hear your thoughts and suggestions.
@@ -75,15 +82,30 @@ const Footer = () => (
 					<p className="mb-2 font-semibold">Copyright &copy; 2024, Jhunnu Samachar. All rights reserved.</p>
 					<p className="text-sm mb-2">
 						Created by{" "}
-						<a href="https://twitter.com/vijayhardaha" target="_blank" rel="noopener noreferrer" className="underline inline-flex items-center">
+						<a
+							href="https://twitter.com/vijayhardaha"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="underline inline-flex items-center"
+						>
 							Vijay Hardaha <MdArrowOutward />
 						</a>
 						, using{" "}
-						<a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer" className="underline inline-flex items-center">
+						<a
+							href="https://nextjs.org/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="underline inline-flex items-center"
+						>
 							Next.js <MdArrowOutward />
 						</a>{" "}
 						and{" "}
-						<a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" className="underline inline-flex items-center">
+						<a
+							href="https://tailwindcss.com/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="underline inline-flex items-center"
+						>
 							Tailwind CSS <MdArrowOutward />
 						</a>
 					</p>
