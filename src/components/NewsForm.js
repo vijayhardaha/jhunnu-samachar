@@ -116,11 +116,6 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 	return (
 		<>
 			<form className="mb-10">
-				<p id="news-form-description" className="text-sm mb-6 leading-relaxed font-medium">
-					Fill out the form with your headline, publisher, and content. Complete all fields to generate and preview your
-					custom newspaper clipping.
-				</p>
-
 				<div className="grid gap-4 mb-4 md:grid-cols-2 md:gap-6">
 					<div>
 						<label id="news-heading-label" className="block mb-1 font-semibold text-sm" htmlFor="news-heading">
