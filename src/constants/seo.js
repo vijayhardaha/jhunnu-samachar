@@ -1,3 +1,5 @@
+import { getSiteUrl } from "@/utils/url";
+
 /**
  * The base URL of the site, retrieved from environment variables.
  * Defaults to an empty string if the environment variable is not set.
@@ -52,8 +54,8 @@ export const DEFAULT_SEO = {
 		"Jhunnu Samachar, Funny fake news, Create fake news stories, Generate hilarious headlines, Fake news generator, Share funny news stories, Comedy news app, Customizable fake news, Funny news creator, Hilarious news articles",
 	language: "en-US",
 	author: "Vijay Hardaha",
-	image: `${SITE_URL}/thumbnail.png`,
-	url: SITE_URL,
+	image: `${getSiteUrl()}/thumbnail.png`,
+	url: getSiteUrl(),
 	googlebot: "index, follow",
 	robots: "index, follow",
 };

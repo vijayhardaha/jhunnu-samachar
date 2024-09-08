@@ -14,8 +14,8 @@ import {
 } from "react-icons/ai";
 
 import { DEFAULT_NEWS_DATA } from "@/constants/news";
-import { SITE_URL } from "@/constants/seo";
 import { extractExtensionFromBase64, generateUniqueId } from "@/utils/download";
+import { getSiteUrl } from "@/utils/url";
 
 /**
  * Reusable Button component for various actions.
@@ -101,7 +101,7 @@ const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
 	const inputRef = useRef(null);
 	const [isCopied, setIsCopied] = useState(false);
 	const promotionalTag = "#JhunnuSamachar";
-	const message = `Check out this cool app! I made this awesome newspaper clipping using Jhunnu Samachar. You can create your own at ${SITE_URL}`;
+	const message = `Check out this cool app! I made this awesome newspaper clipping using Jhunnu Samachar. You can create your own at ${getSiteUrl()}`;
 
 	/**
 	 * Handles the download of the preview image with a unique filename.
