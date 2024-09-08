@@ -24,7 +24,7 @@ const NewsPreview = ({ news }) => {
 	const contentFontClass = containsHindi(content) ? hindiTextFont.className : englishTextFont.className;
 
 	return (
-		<div className="fixed inset-0 z-10 max-w-[600px] overflow-hidden bg-white opacity-1">
+		<div className="fixed inset-0 max-w-[600px] overflow-hidden bg-white -z-10 opacity-0">
 			<div id="news-preview" className="relative">
 				<div
 					className="absolute inset-0 bg-cover bg-center"
