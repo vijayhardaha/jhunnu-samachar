@@ -34,7 +34,7 @@ const Button = ({ color, text, icon, onClick, ariaLabel, ...props }) => {
 		<>
 			<button
 				onClick={onClick}
-				className={`${color} hover:${color.replace("bg-", "hover:bg-")} focus:outline-none focus:ring-2 focus:ring-offset-2 text-white font-medium h-12 px-4 rounded-lg inline-flex items-center justify-center text-sm relative`}
+				className={`${color} hover:${color} hover:bg-opacity-80 text-white font-medium h-12 px-4 rounded-lg inline-flex items-center justify-center text-sm relative`}
 				aria-label={ariaLabel || text}
 				{...props}
 			>
@@ -209,31 +209,31 @@ const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
 
 			<div className="button-group relative flex flex-row space-x-2 mb-4">
 				<Button
-					color="bg-slate-900"
+					color="bg-[#4a4a4a]"
 					text="Download the News Clip"
 					icon={<AiOutlineDownload className="text-2xl" />}
 					onClick={handleDownload}
 				/>
 				<Button
-					color="bg-blue-500"
+					color="bg-[#1da1f2]"
 					text="Share on Twitter"
 					icon={<AiOutlineTwitter className="text-2xl" />}
 					onClick={() => handleShare("twitter")}
 				/>
 				<Button
-					color="bg-green-500"
+					color="bg-[#25d366]"
 					text="Share via WhatsApp"
 					icon={<AiOutlineWhatsApp className="text-2xl" />}
 					onClick={() => handleShare("whatsapp")}
 				/>
 				<Button
-					color="bg-yellow-500"
+					color="bg-[#ffa500]"
 					text="Edit the News Content"
 					icon={<AiOutlineEdit className="text-2xl" />}
 					onClick={handleEdit}
 				/>
 				<Button
-					color="bg-teal-500"
+					color="bg-[#007bff]"
 					text="Generate New Newspaper Clipping"
 					icon={<AiOutlineReload className="text-2xl" />}
 					onClick={handleReset}
