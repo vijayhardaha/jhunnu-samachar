@@ -18,7 +18,7 @@ import NewsPreview from "./NewsPreview";
  */
 const NewsForm = ({ news, setNews, setPreview }) => {
 	const [contentLength, setContentLength] = useState(news.content.length);
-	const maxContentLength = 1000;
+	const maxContentLength = 1500;
 
 	/**
 	 * Handles changes to form input fields and updates the news data.
