@@ -21,18 +21,20 @@ const Home = () => {
 		<div className="min-h-screen">
 			<Header />
 
-			<main className="container mb-8 mt-2 sm:mt-4 md:mt-6 mx-auto">
-				<p className="text-lg mb-6 leading-relaxed font-medium">
-					Craft and share funny fake news with Jhunnu Samachar. Easily create hilarious headlines and content to
-					entertain everyone!
-				</p>
+			<main className="mt-2 mb-8 sm:mt-4 md:mt-6">
+				<div className="container mx-auto">
+					<p className="mb-6 text-lg font-medium leading-relaxed">
+						Craft and share funny fake news with Jhunnu Samachar. Easily create hilarious headlines and content to
+						entertain everyone!
+					</p>
 
-				<div className="block relative mt-4 mb-12">
-					{previewUrl ? (
-						<PreviewSection previewUrl={previewUrl} setNews={setNews} setPreview={setPreviewUrl} />
-					) : (
-						<NewsForm news={news} setNews={setNews} setPreview={setPreviewUrl} />
-					)}
+					<div className="relative mt-4 mb-12">
+						{previewUrl ? (
+							<PreviewSection previewUrl={previewUrl} setNews={setNews} setPreview={setPreviewUrl} />
+						) : (
+							<NewsForm news={news} setNews={setNews} setPreview={setPreviewUrl} />
+						)}
+					</div>
 				</div>
 			</main>
 
@@ -42,12 +44,14 @@ const Home = () => {
 };
 
 Home.propTypes = {
+	/** The news data used for the form and preview. */
 	news: PropTypes.shape({
 		heading: PropTypes.string,
 		content: PropTypes.string,
 		date: PropTypes.string,
 		publisher: PropTypes.string,
 	}),
+	/** The URL of the preview image. */
 	previewUrl: PropTypes.string,
 };
 
