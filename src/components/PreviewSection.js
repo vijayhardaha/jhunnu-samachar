@@ -172,7 +172,7 @@ const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
 
 	return (
 		<div className="bg-white">
-			<p className="mb-4 font-medium text-gray-700 mb-4">
+			<p className="mb-4 font-medium text-gray-700">
 				<strong>Here is your newspaper clipping preview.</strong> You can download it to save or share it with others
 				using the buttons below. If you’d like to make changes, click{" "}
 				<strong className="text-yellow-500">[Edit]</strong> to adjust the content, or select{" "}
