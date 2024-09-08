@@ -1,7 +1,7 @@
 import { Montserrat } from "next/font/google";
 import PropTypes from "prop-types";
 
-import "../styles/globals.scss";
+import "../styles/globals.css";
 import SEO from "@/components/SEO";
 
 const font = Montserrat({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700", "800", "900"] });
