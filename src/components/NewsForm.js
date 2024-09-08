@@ -95,7 +95,6 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 			},
 		};
 
-		console.log(options);
 		const dataUrl =
 			news.format === "png" ? await domtoimage.toPng(node, options) : await domtoimage.toJpeg(node, options);
 
