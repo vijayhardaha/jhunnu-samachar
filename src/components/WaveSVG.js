@@ -12,6 +12,7 @@ const WaveSVG = ({ ...props }) => (
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 1440 320"
 		preserveAspectRatio="none"
+		aria-hidden="true"
 		style={{ width: "100%", height: "5rem", display: "block" }}
 		{...props}
 	>
