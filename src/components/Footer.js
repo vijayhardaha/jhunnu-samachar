@@ -9,16 +9,15 @@ import { getShareUrl } from "@/utils/share";
  * @returns {JSX.Element} The footer component.
  */
 const Footer = () => (
-	<footer className="relative mt-6">
+	<footer className="relative mt-20">
 		{/* Top SVG design */}
-		<WaveSVG
-			color="#f1f5f9"
-			style={{ width: "100%", height: "5rem", display: "block" }}
-			aria-hidden="true" // Make SVG decorative
-		/>
+
+		<div className="text-slate-200">
+			<WaveSVG />
+		</div>
 
 		{/* Main content area */}
-		<section className="bg-slate-100">
+		<section className="bg-slate-200">
 			<div className="pt-16 pb-12">
 				<div className="container mx-auto">
 					<div className="mb-8 leading-relaxed">
@@ -128,14 +127,8 @@ const Footer = () => (
 				</div>
 			</div>
 
-			{/* Bottom SVG design */}
-			<WaveSVG
-				color="#ffdbb5"
-				aria-hidden="true" // Make SVG decorative
-			/>
-
 			{/* Footer content */}
-			<div className="relative z-10 p-4 pb-8 text-center bg-accent text-black">
+			<div className="relative z-10 py-8 text-center bg-accent text-black">
 				<div className="container mx-auto">
 					<p className="mb-2 font-semibold">Copyright &copy; 2024, Jhunnu Samachar. All rights reserved.</p>
 
