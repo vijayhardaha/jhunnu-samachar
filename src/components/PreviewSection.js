@@ -172,11 +172,17 @@ const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
 
 	return (
 		<div className="bg-white">
-			<p className="mb-4 font-medium text-gray-700">
+			<p className="mb-4 font-medium text-gray-700 leading-relaxed">
 				<strong>Here is your newspaper clipping preview.</strong> You can download it to save or share it with others
 				using the buttons below. If you’d like to make changes, click{" "}
-				<strong className="text-yellow-500">[Edit]</strong> to adjust the content, or select{" "}
-				<strong className="text-teal-500">[Generate New]</strong> to create a fresh newspaper clipping.
+				<button onClick={handleEdit} className="text-yellow-500 font-bold underline hover:no-underline">
+					[Edit]
+				</button>{" "}
+				to adjust the content, or click{" "}
+				<button onClick={handleReset} className="text-teal-500 font-bold underline hover:no-underline">
+					[Generate New]
+				</button>{" "}
+				to create a fresh newspaper clipping.
 			</p>
 
 			<div className="flex flex-row gap-2 mb-4">
