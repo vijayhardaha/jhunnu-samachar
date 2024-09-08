@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 
 import Logo from "./Logo";
-import { SITE_URL } from "../constants/seo";
+import { getShareUrl } from "@/utils/share";
 
 /**
  * Header component for the "Jhunnu Samachar" application.
@@ -10,30 +10,27 @@ import { SITE_URL } from "../constants/seo";
  * @returns {JSX.Element} The header component.
  */
 const Header = () => {
-	const shareMessage = `Check out this amazing newspaper clipping generator on Jhunnu Samachar! Create your own custom clippings easily. ${SITE_URL}`;
-
 	return (
-		<header className="pt-3 pb-2">
+		<header className="pb-2 pt-3">
 			<div className="container mx-auto flex items-center justify-between">
-				<Link href="/" className="flex items-center space-x-3">
+				<Link href="/" className="flex items-center space-x-3" aria-label="Jhunnu Samachar Home">
 					<div style={{ margin: "-6px" }}>
 						<Logo size={50} />
 					</div>
 
-					<h1 className="font-semibold text-primary inline">Jhunnu Samachar</h1>
+					<h1 className="inline font-semibold text-primary">Jhunnu Samachar</h1>
 				</Link>
-				<div className="flex items-center">
-					<a
-						href={`https://wa.me/?text=${encodeURIComponent(shareMessage)}`}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="bg-zinc-200 hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-100 text-gray-800 text-sm font-normal h-8 px-3 rounded-md w-full flex items-center justify-center sm:w-auto"
-						aria-label="Share on WhatsApp"
-					>
-						<AiOutlineWhatsApp className="mr-1 text-base" />
-						<span>Share</span>
-					</a>
-				</div>
+
+				<a
+					href={getShareUrl()}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="flex items-center justify-center text-sm font-semibold text-gray-800 underline hover:no-underline"
+					aria-label="Share on WhatsApp"
+				>
+					<AiOutlineWhatsApp className="mr-1 text-base" aria-hidden="true" />
+					<span>Share this App</span>
+				</a>
 			</div>
 		</header>
 	);
