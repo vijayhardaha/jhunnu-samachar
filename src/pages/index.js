@@ -2,11 +2,11 @@ import { useState } from "react";
 
 import PropTypes from "prop-types";
 
-import Footer from "../src/components/Footer";
-import Header from "../src/components/Header";
-import NewsForm from "../src/components/NewsForm";
-import PreviewSection from "../src/components/PreviewSection";
-import { DEFAULT_NEWS_DATA } from "../src/constants/newsConstants";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import NewsForm from "@/components/NewsForm";
+import PreviewSection from "@/components/PreviewSection";
+import { DEFAULT_NEWS_DATA } from "@/constants/newsConstants";
 
 /**
  * Main component for the "Jhunnu Samachar" newspaper clipping generator.
