@@ -1,5 +1,3 @@
-import { getSiteUrl } from "@/utils/url";
-
 /**
  * The base URL of the site, retrieved from environment variables.
  * Defaults to an empty string if the environment variable is not set.
@@ -13,7 +11,7 @@ export const SITE_URL = process.env.NEXT_PUBLIC_BASE_URL || ""; // Default to an
  * @type {string}
  * @default "Jhunnu Samachar - Newspaper Clipping Generator"
  */
-export const SITE_TITLE = "Jhunnu Samachar: Create and Share Hilarious Fake News Stories!";
+export const SITE_TITLE = "Jhunnu Samachar - Create and Share Hilarious Fake News Stories!";
 
 /**
  * Short version of the site title for SEO and display purposes.
@@ -54,8 +52,8 @@ export const DEFAULT_SEO = {
 		"Jhunnu Samachar, Funny fake news, Create fake news stories, Generate hilarious headlines, Fake news generator, Share funny news stories, Comedy news app, Customizable fake news, Funny news creator, Hilarious news articles",
 	language: "en-US",
 	author: "Vijay Hardaha",
-	image: `${getSiteUrl()}/thumbnail.png`,
-	url: getSiteUrl(),
+	image: "/thumbnail.png",
+	url: "",
 	googlebot: "index, follow",
 	robots: "index, follow",
 };
