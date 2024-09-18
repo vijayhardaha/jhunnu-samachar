@@ -18,7 +18,7 @@ const Footer = () => (
 
 		{/* Main content area */}
 		<section className="bg-slate-200">
-			<div className="pt-16 pb-12">
+			<div className="pb-12 pt-16">
 				<div className="container mx-auto">
 					<div className="mb-8 leading-relaxed">
 						<h2 className="mb-2 text-3xl font-bold">Welcome to Jhunnu Samachar</h2>
@@ -33,7 +33,7 @@ const Footer = () => (
 						<h3 className="mb-2 text-2xl font-semibold">Getting Started</h3>
 						<p className="mb-4">Follow these steps to create your newspaper clipping:</p>
 
-						<ol className="list-decimal list-inside">
+						<ol className="list-inside list-decimal">
 							<li className="mb-2">
 								<strong>Enter Your Information:</strong> Input your news headline, publisher, and content into the
 								designated fields.
@@ -54,7 +54,7 @@ const Footer = () => (
 						<p className="mb-4">
 							Help spread the word about Jhunnu Samachar! You can share this amazing tool with others via:
 						</p>
-						<ul className="list-disc pl-5 mb-4">
+						<ul className="mb-4 list-disc pl-5">
 							<li>
 								<a
 									href={getShareUrl()}
@@ -129,7 +129,7 @@ const Footer = () => (
 			</div>
 
 			{/* Footer content */}
-			<div className="relative z-10 py-8 text-center bg-accent text-black">
+			<div className="relative z-10 bg-accent py-8 text-center text-black">
 				<div className="container mx-auto">
 					<p className="mb-2 font-semibold">Copyright &copy; 2024, Jhunnu Samachar. All rights reserved.</p>
 

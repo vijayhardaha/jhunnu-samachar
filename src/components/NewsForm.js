@@ -107,9 +107,9 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 	return (
 		<>
 			<form className="mb-10">
-				<div className="grid gap-4 mb-4 md:grid-cols-2 md:gap-6">
+				<div className="mb-4 grid gap-4 md:grid-cols-2 md:gap-6">
 					<div>
-						<label id="news-heading-label" className="block mb-1 font-semibold" htmlFor="news-heading">
+						<label id="news-heading-label" className="mb-1 block font-semibold" htmlFor="news-heading">
 							News Heading:
 						</label>
 						<input
@@ -117,7 +117,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 							id="news-heading"
 							name="heading"
 							aria-labelledby="news-heading-label"
-							className="w-full p-3 border border-slate-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
+							className="w-full rounded-lg border border-slate-400 p-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
 							value={news.heading}
 							onChange={handleChange}
 							aria-required="true"
@@ -126,7 +126,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					</div>
 
 					<div>
-						<label id="news-publisher-label" className="block mb-1 font-semibold" htmlFor="news-publisher">
+						<label id="news-publisher-label" className="mb-1 block font-semibold" htmlFor="news-publisher">
 							News Publisher:
 						</label>
 						<input
@@ -134,7 +134,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 							id="news-publisher"
 							name="publisher"
 							aria-labelledby="news-publisher-label"
-							className="w-full p-3 border border-slate-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
+							className="w-full rounded-lg border border-slate-400 p-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
 							value={news.publisher}
 							onChange={handleChange}
 							aria-required="true"
@@ -144,7 +144,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 				</div>
 
 				<div className="mb-4">
-					<label id="news-content-label" className="block mb-1 font-semibold" htmlFor="news-content">
+					<label id="news-content-label" className="mb-1 block font-semibold" htmlFor="news-content">
 						News Content:
 					</label>
 					<textarea
@@ -152,7 +152,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 						name="content"
 						aria-labelledby="news-content-label"
 						aria-describedby="content-length-description"
-						className="w-full p-3 border border-slate-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
+						className="w-full rounded-lg border border-slate-400 p-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-70 focus:ring-offset-2"
 						rows="12"
 						value={news.content}
 						onChange={handleChange}
@@ -160,7 +160,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 						aria-required="true"
 						required
 					/>
-					<p id="content-length-description" className="text-slate-600 text-sm mt-1">
+					<p id="content-length-description" className="mt-1 text-sm text-slate-600">
 						{maxContentLength - contentLength} / {maxContentLength} characters remaining
 					</p>
 				</div>
@@ -169,17 +169,17 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					<button
 						type="button"
 						onClick={toggleDropdown}
-						className="bg-transparent border border-slate-400 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 text-sm text-slate-800 font-semibold px-3 h-10 rounded-lg inline-flex items-center justify-center whitespace-nowrap"
+						className="inline-flex h-10 items-center justify-center whitespace-nowrap rounded-lg border border-slate-400 bg-transparent px-3 text-sm font-semibold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
 					>
 						<GoGear className="mr-1" />
 						Image Settings - {news.format.toUpperCase()} / {getSizeLabel(news.scale)} / {getQualityLabel(news.quality)}
 					</button>
 					{isDropdownOpen && (
-						<div className="absolute left-0 top-full mt-1 z-10 bg-white shadow-lg border border-slate-200 rounded-lg p-4 py-3">
+						<div className="absolute left-0 top-full z-10 mt-1 rounded-lg border border-slate-200 bg-white p-4 py-3 shadow-lg">
 							<div className="flex flex-row gap-4">
 								{/* Image Format Dropdown */}
 								<div>
-									<label className="block mb-1 font-semibold text-sm" htmlFor="image-format">
+									<label className="mb-1 block text-sm font-semibold" htmlFor="image-format">
 										Format:
 									</label>
 									<select
@@ -187,7 +187,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 										name="format"
 										value={news.format}
 										onChange={handleChange}
-										className="border rounded p-2 text-xs font-medium"
+										className="rounded border p-2 text-xs font-medium"
 									>
 										<option value="jpeg">JPEG</option>
 										<option value="png">PNG</option>
@@ -196,7 +196,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 
 								{/* Scale Dropdown */}
 								<div>
-									<label className="block mb-1 font-semibold text-sm" htmlFor="scale-options">
+									<label className="mb-1 block text-sm font-semibold" htmlFor="scale-options">
 										Size:
 									</label>
 									<select
@@ -204,7 +204,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 										name="scale"
 										value={news.scale}
 										onChange={handleChange}
-										className="border rounded p-2 text-xs font-medium"
+										className="rounded border p-2 text-xs font-medium"
 									>
 										<option value="2">Small</option>
 										<option value="3">Medium</option>
@@ -214,7 +214,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 
 								{/* Quality Dropdown */}
 								<div>
-									<label className="block mb-1 font-semibold text-sm" htmlFor="quality-dropdown">
+									<label className="mb-1 block text-sm font-semibold" htmlFor="quality-dropdown">
 										Quality:
 									</label>
 									<select
@@ -222,7 +222,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 										name="quality"
 										value={news.quality}
 										onChange={handleChange}
-										className="border rounded p-2 text-xs font-medium"
+										className="rounded border p-2 text-xs font-medium"
 									>
 										<option value="0.35">Basic</option>
 										<option value="0.50">Standard</option>
@@ -241,7 +241,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					<button
 						type="button"
 						onClick={handleGenerate}
-						className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 text-base sm:text-lg text-white font-semibold h-12 px-6 rounded-lg inline-flex items-center justify-center whitespace-nowrap"
+						className="inline-flex h-12 items-center justify-center whitespace-nowrap rounded-lg bg-slate-900 px-6 text-base font-semibold text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 sm:text-lg"
 					>
 						<AiOutlineFire className="mr-1" />
 						Generate
@@ -249,7 +249,7 @@ const NewsForm = ({ news, setNews, setPreview }) => {
 					<button
 						type="button"
 						onClick={handleClear}
-						className="bg-transparent border border-slate-400 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 text-base sm:text-lg text-slate-800 font-semibold h-12 px-6 rounded-lg inline-flex items-center justify-center whitespace-nowrap"
+						className="inline-flex h-12 items-center justify-center whitespace-nowrap rounded-lg border border-slate-400 bg-transparent px-6 text-base font-semibold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 sm:text-lg"
 					>
 						<AiOutlineClear className="mr-1" />
 						Clear

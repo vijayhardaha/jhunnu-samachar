@@ -24,39 +24,39 @@ const NewsPreview = ({ news }) => {
 	const contentFontClass = containsHindi(content) ? hindiTextFont.className : englishTextFont.className;
 
 	return (
-		<div className="fixed inset-0 max-w-[600px] overflow-hidden -z-10 opacity-0" aria-hidden="true">
-			<div id="news-preview" className="relative bg-white overflow-hidden">
+		<div className="fixed inset-0 -z-10 max-w-[600px] overflow-hidden opacity-0" aria-hidden="true">
+			<div id="news-preview" className="relative overflow-hidden bg-white">
 				<div
-					className="absolute inset-0 bg-cover bg-center z-10"
+					className="absolute inset-0 z-10 bg-cover bg-center"
 					style={{ backgroundImage: `url('/images/newspaper-bg.webp')`, opacity: 0.45 }}
 				/>
 
 				<div className="relative z-20 p-8 text-black">
 					<div className={`${englishTextFont.className}`}>
-						<h1 className={`text-6xl sm:text-7xl ${titleFont.className} text-center text-primary font-bold mb-8`}>
+						<h1 className={`text-6xl sm:text-7xl ${titleFont.className} mb-8 text-center font-bold text-primary`}>
 							Jhunnu Samachar
 						</h1>
 
-						<hr className="my-2 h-[2px] bg-black border-0" />
+						<hr className="my-2 h-[2px] border-0 bg-black" />
 
-						<div className="flex flex-row justify-between my-3 px-1 text-xs">
+						<div className="my-3 flex flex-row justify-between px-1 text-xs">
 							<span className="whitespace-nowrap">{formatDate(new Date(), "EEEE - dd, MMMM yyyy")}</span>
 							<span className="whitespace-nowrap">Publisher: {publisher}</span>
 						</div>
 
-						<hr className="my-2 h-[2px] bg-black border-0 mb-6" />
+						<hr className="my-2 mb-6 h-[2px] border-0 bg-black" />
 
 						<h2
-							className={`${headingFontClass} text-4xl sm:text-5xl leading-tight sm:leading-tight text-secondary font-semibold mb-6`}
+							className={`${headingFontClass} mb-6 text-4xl font-semibold leading-tight text-secondary sm:text-5xl sm:leading-tight`}
 						>
 							{heading}
 						</h2>
 
-						<p className={`${contentFontClass} text-lg leading-relaxed mb-0 whitespace-pre-line`}>{content}</p>
+						<p className={`${contentFontClass} mb-0 whitespace-pre-line text-lg leading-relaxed`}>{content}</p>
 					</div>
 
 					<div className="mt-8 text-center text-xs">
-						<hr className="my-6 h-[2px] w-[100px] bg-primary border-0 mx-auto" />
+						<hr className="mx-auto my-6 h-[2px] w-[100px] border-0 bg-primary" />
 						<p>
 							Visit us at <span className="font-semibold text-primary underline">jhunnusamachar.vercel.app</span>
 						</p>

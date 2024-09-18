@@ -34,7 +34,7 @@ const Button = ({ color, text, icon, onClick, ariaLabel, ...props }) => {
 		<>
 			<button
 				onClick={onClick}
-				className={`${color} hover:${color} hover:bg-opacity-80 text-white font-medium h-12 px-4 rounded-lg inline-flex items-center justify-center text-sm relative`}
+				className={`${color} hover:${color} relative inline-flex h-12 items-center justify-center rounded-lg px-4 text-sm font-medium text-white hover:bg-opacity-80`}
 				aria-label={ariaLabel || text}
 				{...props}
 			>
@@ -172,48 +172,48 @@ const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
 
 	return (
 		<div className="bg-white">
-			<p className="mb-4 font-medium text-gray-700 leading-relaxed">
+			<p className="mb-4 font-medium leading-relaxed text-gray-700">
 				<strong>Here is your newspaper clipping preview.</strong> You can download it to save or share it with others
 				using the buttons below. If you’d like to make changes, click{" "}
-				<button onClick={handleEdit} className="text-yellow-500 font-bold underline hover:no-underline">
+				<button onClick={handleEdit} className="font-bold text-yellow-500 underline hover:no-underline">
 					[Edit]
 				</button>{" "}
 				to adjust the content, or click{" "}
-				<button onClick={handleReset} className="text-teal-500 font-bold underline hover:no-underline">
+				<button onClick={handleReset} className="font-bold text-teal-500 underline hover:no-underline">
 					[Generate New]
 				</button>{" "}
 				to create a fresh newspaper clipping.
 			</p>
 
-			<div className="flex flex-row gap-2 mb-4">
+			<div className="mb-4 flex flex-row gap-2">
 				<input
 					ref={inputRef}
 					type="text"
 					readOnly
 					value={message}
-					className="flex-1 p-3 border border-gray-400 rounded-lg bg-gray-100 text-gray-700"
+					className="flex-1 rounded-lg border border-gray-400 bg-gray-100 p-3 text-gray-700"
 				/>
 				<button
 					onClick={handleCopyToClipboard}
-					className={`flex items-center justify-center bg-gray-800 hover:bg-gray-600 text-white font-medium rounded-lg px-4 py-2 ${
+					className={`flex items-center justify-center rounded-lg bg-gray-800 px-4 py-2 font-medium text-white hover:bg-gray-600 ${
 						isCopied ? "bg-green-500 hover:bg-green-400" : ""
 					}`}
 				>
 					{isCopied ? (
 						<>
-							<AiOutlineCheck className="text-2xl sm:text-xl mr-0 sm:mr-1" />
+							<AiOutlineCheck className="mr-0 text-2xl sm:mr-1 sm:text-xl" />
 							<span className="hidden sm:inline">Copied</span>
 						</>
 					) : (
 						<>
-							<AiOutlineCopy className="text-2xl sm:text-xl mr-0 sm:mr-1" />
+							<AiOutlineCopy className="mr-0 text-2xl sm:mr-1 sm:text-xl" />
 							<span className="hidden sm:inline">Copy</span>
 						</>
 					)}
 				</button>
 			</div>
 
-			<div className="button-group relative flex flex-row space-x-2 mb-4">
+			<div className="button-group relative mb-4 flex flex-row space-x-2">
 				<Button
 					color="bg-[#4a4a4a]"
 					text="Download the News Clip"
@@ -247,7 +247,7 @@ const PreviewSection = ({ previewUrl, setNews, setPreview }) => {
 			</div>
 
 			{/* Preview Image */}
-			<div className="mx-auto mt-6 max-w-full ">
+			<div className="mx-auto mt-6 max-w-full">
 				<Image
 					src={previewUrl}
 					alt="News Preview"
